@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Legend of Zelda: Breath of the Wild - Review Center</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Freviewcen3462back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+<script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+</head>
+<body class="bg-background text-text-primary min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface border-b border-primary-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="home.html" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L3.09 8.26L4 21H20L20.91 8.26L12 2ZM12 4.44L18.18 9H5.82L12 4.44ZM6 11H18V19H6V11Z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-primary">Review Center</span>
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="home.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Início</a>
+                        <a href="search_and_explore.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Explorar</a>
+                        <a href="about.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Sobre</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-text-secondary hover:text-primary p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface-800">
+                <a href="home.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="search_and_explore.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Explorar</a>
+                <a href="about.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <section class="py-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-sm">
+                <li>
+                    <a href="home.html" class="text-text-secondary hover:text-primary transition-gaming">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="w-4 h-4 text-text-tertiary mx-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7"/>
+                    </svg>
+                    <a href="search_and_explore.html" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="w-4 h-4 text-text-tertiary mx-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7"/>
+                    </svg>
+                    <span class="text-text-primary font-medium">The Legend of Zelda: Breath of the Wild</span>
+                </li>
+            </ol>
+        </nav>
+    </section>
+
+    <!-- Game Header Section -->
+    <section class="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="bg-surface rounded-2xl p-6 md:p-8 card-shadow">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Game Cover Image -->
+                <div class="lg:col-span-1">
+                    <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-surface-700">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="The Legend of Zelda: Breath of the Wild Cover" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                    </div>
+                </div>
+                
+                <!-- Game Information -->
+                <div class="lg:col-span-2">
+                    <!-- Yellow accent line -->
+                    <div class="w-24 h-1 bg-primary mb-6"></div>
+                    
+                    <h1 class="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+                        The Legend of Zelda: Breath of the Wild
+                    </h1>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <!-- Game Details -->
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                <div>
+                                    <p class="text-text-secondary text-sm">Desenvolvedora</p>
+                                    <p class="text-text-primary font-medium">Nintendo EPD</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                                </svg>
+                                <div>
+                                    <p class="text-text-secondary text-sm">Data de Lançamento</p>
+                                    <p class="text-text-primary font-medium">03 de Março, 2017</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
+                                </svg>
+                                <div>
+                                    <p class="text-text-secondary text-sm">Plataformas</p>
+                                    <p class="text-text-primary font-medium">Nintendo Switch, Wii U</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Score Badges -->
+                        <div class="space-y-4">
+                            <div class="bg-surface-700 rounded-xl p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-text-secondary text-sm">Metascore</span>
+                                    <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-xl">
+                                        97
+                                    </div>
+                                </div>
+                                <div class="text-text-tertiary text-xs">Baseado em 108 avaliações</div>
+                            </div>
+                            
+                            <div class="bg-surface-700 rounded-xl p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-text-secondary text-sm">Pontuação dos Usuários</span>
+                                    <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-xl">
+                                        8.7
+                                    </div>
+                                </div>
+                                <div class="text-text-tertiary text-xs">Baseado em 12,847 avaliações</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap gap-3">
+                        <button class="bg-primary text-background px-6 py-3 rounded-xl font-semibold hover:bg-primary-600 transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 flex items-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                            <span>Adicionar aos Favoritos</span>
+                        </button>
+                        
+                        <button class="border-2 border-primary text-primary px-6 py-3 rounded-xl font-semibold hover:bg-primary hover:text-background transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 flex items-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                            </svg>
+                            <span>Compartilhar</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Yellow accent line -->
+                    <div class="w-24 h-1 bg-primary mt-6"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabbed Content Section -->
+    <section class="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="bg-surface rounded-2xl card-shadow overflow-hidden">
+            <!-- Tab Navigation -->
+            <div class="border-b border-primary-accent">
+                <nav class="flex space-x-8 px-6" aria-label="Tabs">
+                    <button id="tab-overview" class="tab-button active py-4 px-1 border-b-2 font-medium text-sm focus:outline-none transition-gaming" onclick="switchTab('overview')">
+                        Visão Geral
+                    </button>
+                    <button id="tab-metrics" class="tab-button py-4 px-1 border-b-2 font-medium text-sm focus:outline-none transition-gaming" onclick="switchTab('metrics')">
+                        Métricas
+                    </button>
+                    <button id="tab-links" class="tab-button py-4 px-1 border-b-2 font-medium text-sm focus:outline-none transition-gaming" onclick="switchTab('links')">
+                        Links
+                    </button>
+                </nav>
+            </div>
+            
+            <!-- Tab Content -->
+            <div class="p-6">
+                <!-- Overview Tab -->
+                <div id="content-overview" class="tab-content">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Game Description -->
+                        <div class="lg:col-span-2 space-y-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-text-primary mb-4">Descrição</h3>
+                                <p class="text-text-secondary leading-relaxed">
+                                    The Legend of Zelda: Breath of the Wild é um jogo de ação-aventura desenvolvido pela Nintendo EPD. 
+                                    O jogo apresenta um mundo aberto onde os jogadores podem explorar livremente o reino de Hyrule. 
+                                    Com mecânicas inovadoras de física e química, o jogo oferece múltiplas soluções para puzzles e combates, 
+                                    proporcionando uma experiência única para cada jogador.
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xl font-bold text-text-primary mb-4">Características Principais</h3>
+                                <ul class="space-y-2 text-text-secondary">
+                                    <li class="flex items-start space-x-2">
+                                        <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                        </svg>
+                                        <span>Mundo aberto massivo para explorar</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                        </svg>
+                                        <span>Sistema de física e química interativo</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                        </svg>
+                                        <span>Mais de 120 santuários para descobrir</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                        </svg>
+                                        <span>Sistema de crafting e culinária</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                        </svg>
+                                        <span>Escalada e parapente para navegação</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Game Details Sidebar -->
+                        <div class="lg:col-span-1 space-y-6">
+                            <!-- Genre Tags -->
+                            <div>
+                                <h3 class="text-lg font-bold text-text-primary mb-3">Gêneros</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-primary text-background px-3 py-1 rounded-full text-sm font-medium">Ação</span>
+                                    <span class="bg-primary text-background px-3 py-1 rounded-full text-sm font-medium">Aventura</span>
+                                    <span class="bg-primary text-background px-3 py-1 rounded-full text-sm font-medium">RPG</span>
+                                    <span class="bg-primary text-background px-3 py-1 rounded-full text-sm font-medium">Mundo Aberto</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Additional Details -->
+                            <div class="bg-surface-700 rounded-xl p-4 space-y-3">
+                                <h3 class="text-lg font-bold text-text-primary">Detalhes</h3>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Classificação:</span>
+                                        <span class="text-text-primary">T (Teen)</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Jogadores:</span>
+                                        <span class="text-text-primary">1</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Tamanho:</span>
+                                        <span class="text-text-primary">13.4 GB</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Idiomas:</span>
+                                        <span class="text-text-primary">12</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Awards -->
+                            <div class="bg-surface-700 rounded-xl p-4">
+                                <h3 class="text-lg font-bold text-text-primary mb-3">Prêmios</h3>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex items-center space-x-2">
+                                        <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        <span class="text-text-secondary">Game of the Year 2017</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        <span class="text-text-secondary">Best Action/Adventure</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        <span class="text-text-secondary">Excellence in Design</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Metrics Tab -->
+                <div id="content-metrics" class="tab-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Score Distribution -->
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-text-primary">Distribuição de Pontuações</h3>
+                            
+                            <!-- Metascore Distribution -->
+                            <div class="bg-surface-700 rounded-xl p-4">
+                                <h4 class="text-lg font-semibold text-text-primary mb-4">Metascore (Críticos)</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-sm">90-100</span>
+                                        <div class="flex-1 mx-3 bg-surface-600 rounded-full h-2">
+                                            <div class="bg-secondary h-2 rounded-full" style="width: 85%"></div>
+                                        </div>
+                                        <span class="text-text-primary text-sm font-medium">92 avaliações</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-sm">80-89</span>
+                                        <div class="flex-1 mx-3 bg-surface-600 rounded-full h-2">
+                                            <div class="bg-primary h-2 rounded-full" style="width: 12%"></div>
+                                        </div>
+                                        <span class="text-text-primary text-sm font-medium">13 avaliações</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-sm">70-79</span>
+                                        <div class="flex-1 mx-3 bg-surface-600 rounded-full h-2">
+                                            <div class="bg-warning h-2 rounded-full" style="width: 3%"></div>
+                                        </div>
+                                        <span class="text-text-primary text-sm font-medium">3 avaliações</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- User Score Distribution -->
+                            <div class="bg-surface-700 rounded-xl p-4">
+                                <h4 class="text-lg font-semibold text-text-primary mb-4">Pontuação dos Usuários</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-sm">9.0-10.0</span>
+                                        <div class="flex-1 mx-3 bg-surface-600 rounded-full h-2">
+                                            <div class="bg-secondary h-2 rounded-full" style="width: 45%"></div>
+                                        </div>
+                                        <span class="text-text-primary text-sm font-medium">5,781 avaliações</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-sm">8.0-8.9</span>
+                                        <div class="flex-1 mx-3 bg-surface-600 rounded-full h-2">
+                                            <div class="bg-primary h-2 rounded-full" style="width: 35%"></div>
+                                        </div>
+                                        <span class="text-text-primary text-sm font-medium">4,496 avaliações</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-sm">7.0-7.9</span>
+                                        <div class="flex-1 mx-3 bg-surface-600 rounded-full h-2">
+                                            <div class="bg-warning h-2 rounded-full" style="width: 15%"></div>
+                                        </div>
+                                        <span class="text-text-primary text-sm font-medium">1,927 avaliações</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-sm">0.0-6.9</span>
+                                        <div class="flex-1 mx-3 bg-surface-600 rounded-full h-2">
+                                            <div class="bg-error h-2 rounded-full" style="width: 5%"></div>
+                                        </div>
+                                        <span class="text-text-primary text-sm font-medium">643 avaliações</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Analytics Charts -->
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-text-primary">Análise Comparativa</h3>
+                            
+                            <!-- Score Comparison Chart Placeholder -->
+                            <div class="bg-surface-700 rounded-xl p-4">
+                                <h4 class="text-lg font-semibold text-text-primary mb-4">Críticos vs Usuários</h4>
+                                <div class="h-48 bg-surface-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-64 h-32" viewBox="0 0 400 200">
+                                        <!-- Chart Background -->
+                                        <rect width="400" height="200" fill="transparent"/>
+                                        
+                                        <!-- Chart Lines -->
+                                        <polyline points="50,150 100,120 150,100 200,90 250,85 300,80 350,75" fill="none" stroke="#1DBA40" stroke-width="3"/>
+                                        <polyline points="50,160 100,140 150,130 200,125 250,120 300,115 350,110" fill="none" stroke="#F5C400" stroke-width="3"/>
+                                        
+                                        <!-- Chart Points -->
+                                        <circle cx="350" cy="75" r="4" fill="#1DBA40"/>
+                                        <circle cx="350" cy="110" r="4" fill="#F5C400"/>
+                                        
+                                        <!-- Labels -->
+                                        <text x="360" y="80" fill="#1DBA40" font-size="12">Críticos (97)</text>
+                                        <text x="360" y="115" fill="#F5C400" font-size="12">Usuários (8.7)</text>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Platform Performance -->
+                            <div class="bg-surface-700 rounded-xl p-4">
+                                <h4 class="text-lg font-semibold text-text-primary mb-4">Performance por Plataforma</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary">Nintendo Switch</span>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="bg-secondary text-background px-2 py-1 rounded text-sm font-bold">97</div>
+                                            <div class="bg-primary text-background px-2 py-1 rounded text-sm font-bold">8.7</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary">Wii U</span>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="bg-secondary text-background px-2 py-1 rounded text-sm font-bold">96</div>
+                                            <div class="bg-primary text-background px-2 py-1 rounded text-sm font-bold">8.4</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Review Timeline -->
+                            <div class="bg-surface-700 rounded-xl p-4">
+                                <h4 class="text-lg font-semibold text-text-primary mb-4">Linha do Tempo das Avaliações</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Primeira semana:</span>
+                                        <span class="text-text-primary">2,847 avaliações</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Primeiro mês:</span>
+                                        <span class="text-text-primary">8,234 avaliações</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary">Total atual:</span>
+                                        <span class="text-text-primary">12,847 avaliações</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Links Tab -->
+                <div id="content-links" class="tab-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Official Links -->
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-text-primary">Links Oficiais</h3>
+                            
+                            <div class="space-y-3">
+                                <a href="javascript:void(0)" class="flex items-center justify-between p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming group">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-text-primary font-medium">Site Oficial Nintendo</p>
+                                            <p class="text-text-secondary text-sm">nintendo.com</p>
+                                        </div>
+                                    </div>
+                                    <svg class="w-5 h-5 text-text-tertiary group-hover:text-primary transition-gaming" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                </a>
+                                
+                                <a href="javascript:void(0)" class="flex items-center justify-between p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming group">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-text-primary font-medium">Nintendo eShop</p>
+                                            <p class="text-text-secondary text-sm">Loja oficial</p>
+                                        </div>
+                                    </div>
+                                    <svg class="w-5 h-5 text-text-tertiary group-hover:text-primary transition-gaming" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                </a>
+                                
+                                <a href="javascript:void(0)" class="flex items-center justify-between p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming group">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-text-primary font-medium">Guia Oficial</p>
+                                            <p class="text-text-secondary text-sm">Manual e dicas</p>
+                                        </div>
+                                    </div>
+                                    <svg class="w-5 h-5 text-text-tertiary group-hover:text-primary transition-gaming" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Review Sources -->
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-text-primary">Fontes de Avaliação</h3>
+                            
+                            <div class="space-y-3">
+                                <a href="javascript:void(0)" class="flex items-center justify-between p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming group">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-error rounded-lg flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-text-primary font-medium">IGN</p>
+                                            <p class="text-text-secondary text-sm">10/10 - Masterpiece</p>
+                                        </div>
+                                    </div>
+                                    <svg class="w-5 h-5 text-text-tertiary group-hover:text-primary transition-gaming" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                </a>
+                                
+                                <a href="javascript:void(0)" class="flex items-center justify-between p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming group">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-warning rounded-lg flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-text-primary font-medium">GameSpot</p>
+                                            <p class="text-text-secondary text-sm">9/10 - Superb</p>
+                                        </div>
+                                    </div>
+                                    <svg class="w-5 h-5 text-text-tertiary group-hover:text-primary transition-gaming" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                </a>
+                                
+                                <a href="javascript:void(0)" class="flex items-center justify-between p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming group">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-success rounded-lg flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-text-primary font-medium">Polygon</p>
+                                            <p class="text-text-secondary text-sm">Recomendado</p>
+                                        </div>
+                                    </div>
+                                    <svg class="w-5 h-5 text-text-tertiary group-hover:text-primary transition-gaming" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                </a>
+                                
+                                <a href="javascript:void(0)" class="flex items-center justify-between p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming group">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-text-primary font-medium">Metacritic</p>
+                                            <p class="text-text-secondary text-sm">97 - Universal Acclaim</p>
+                                        </div>
+                                    </div>
+                                    <svg class="w-5 h-5 text-text-tertiary group-hover:text-primary transition-gaming" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Games Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="mb-8">
+            <div class="w-24 h-1 bg-primary mb-4"></div>
+            <h2 class="text-3xl font-bold text-text-primary">Jogos Relacionados</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Related Game 1 -->
+            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='game_details.html'">
+                <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4">
+                    <img src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Super Mario Odyssey" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg'; this.onerror=null;" />
+                </div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">Super Mario Odyssey</h3>
+                <p class="text-text-secondary text-sm mb-3">Nintendo • 2017</p>
+                <div class="flex items-center justify-between">
+                    <div class="bg-secondary text-background px-2 py-1 rounded border border-primary text-sm font-bold">97</div>
+                    <div class="bg-secondary text-background px-2 py-1 rounded border border-primary text-sm font-bold">9.0</div>
+                </div>
+            </div>
+            
+            <!-- Related Game 2 -->
+            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='game_details.html'">
+                <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4">
+                    <img src="https://images.pixabay.com/photo/2018/05/14/16/54/cyber-3400789_1280.jpg" alt="The Witcher 3: Wild Hunt" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                </div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">The Witcher 3: Wild Hunt</h3>
+                <p class="text-text-secondary text-sm mb-3">CD Projekt RED • 2015</p>
+                <div class="flex items-center justify-between">
+                    <div class="bg-secondary text-background px-2 py-1 rounded border border-primary text-sm font-bold">93</div>
+                    <div class="bg-secondary text-background px-2 py-1 rounded border border-primary text-sm font-bold">9.0</div>
+                </div>
+            </div>
+            
+            <!-- Related Game 3 -->
+            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='game_details.html'">
+                <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4">
+                    <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hades" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                </div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">Hades</h3>
+                <p class="text-text-secondary text-sm mb-3">Supergiant Games • 2020</p>
+                <div class="flex items-center justify-between">
+                    <div class="bg-secondary text-background px-2 py-1 rounded border border-primary text-sm font-bold">93</div>
+                    <div class="bg-secondary text-background px-2 py-1 rounded border border-primary text-sm font-bold">9.2</div>
+                </div>
+            </div>
+            
+            <!-- Related Game 4 -->
+            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='game_details.html'">
+                <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4">
+                    <img src="https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="God of War" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2018/05/14/16/54/cyber-3400789_1280.jpg'; this.onerror=null;" />
+                </div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">God of War</h3>
+                <p class="text-text-secondary text-sm mb-3">Sony Interactive Entertainment • 2018</p>
+                <div class="flex items-center justify-between">
+                    <div class="bg-secondary text-background px-2 py-1 rounded border border-primary text-sm font-bold">94</div>
+                    <div class="bg-secondary text-background px-2 py-1 rounded border border-primary text-sm font-bold">8.8</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface-900 border-t border-primary-accent py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Logo and Description -->
+                <div class="col-span-1">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L3.09 8.26L4 21H20L20.91 8.26L12 2ZM12 4.44L18.18 9H5.82L12 4.44ZM6 11H18V19H6V11Z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-primary">Review Center</span>
+                    </div>
+                    <p class="text-text-secondary text-sm">
+                        Sua fonte confiável para avaliações e análises de jogos. Descubra, compare e encontre seu próximo jogo favorito.
+                    </p>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="col-span-1">
+                    <h3 class="text-text-primary font-semibold mb-4">Navegação</h3>
+                    <ul class="space-y-2">
+                        <li><a href="home.html" class="text-text-secondary hover:text-primary transition-gaming">Início</a></li>
+                        <li><a href="search_and_explore.html" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a></li>
+                        <li><a href="game_details.html" class="text-text-secondary hover:text-primary transition-gaming">Detalhes do Jogo</a></li>
+                        <li><a href="about.html" class="text-text-secondary hover:text-primary transition-gaming">Sobre</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-span-1">
+                    <h3 class="text-text-primary font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li>contato@reviewcenter.com.br</li>
+                        <li>+55 (11) 9999-9999</li>
+                        <li>São Paulo, SP - Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-primary-accent mt-8 pt-8 text-center">
+                <p class="text-text-secondary text-sm">
+                    © 2025 Review Center. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active', 'border-primary', 'text-primary');
+                button.classList.add('border-transparent', 'text-text-secondary');
+            });
+            
+            // Show selected tab content
+            const selectedContent = document.getElementById(`content-${tabName}`);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+            }
+            
+            // Add active class to selected tab button
+            const selectedButton = document.getElementById(`tab-${tabName}`);
+            if (selectedButton) {
+                selectedButton.classList.add('active', 'border-primary', 'text-primary');
+                selectedButton.classList.remove('border-transparent', 'text-text-secondary');
+            }
+        }
+
+        // Initialize tabs
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial tab styles
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                if (button.classList.contains('active')) {
+                    button.classList.add('border-primary', 'text-primary');
+                    button.classList.remove('border-transparent', 'text-text-secondary');
+                } else {
+                    button.classList.add('border-transparent', 'text-text-secondary');
+                    button.classList.remove('border-primary', 'text-primary');
+                }
+            });
+        });
+
+        // Share functionality
+        document.querySelector('button[onclick*="compartilhar"]')?.addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'The Legend of Zelda: Breath of the Wild - Review Center',
+                        text: 'Confira esta análise completa do jogo!',
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.log('Erro ao compartilhar:', err);
+                }
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copiado para a área de transferência!');
+                });
+            }
+        });
+
+        // Favorites functionality
+        document.querySelector('button[onclick*="favoritos"]')?.addEventListener('click', () => {
+            const button = event.target.closest('button');
+            const icon = button.querySelector('svg');
+            const text = button.querySelector('span');
+            
+            // Toggle favorite state
+            if (button.classList.contains('favorited')) {
+                button.classList.remove('favorited');
+                button.classList.remove('bg-secondary');
+                button.classList.add('bg-primary');
+                text.textContent = 'Adicionar aos Favoritos';
+                // Change icon to outline heart
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>';
+            } else {
+                button.classList.add('favorited');
+                button.classList.remove('bg-primary');
+                button.classList.add('bg-secondary');
+                text.textContent = 'Remover dos Favoritos';
+                // Change icon to filled heart
+                icon.innerHTML = '<path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>';
+            }
+        });
+
+        // Add loading animation to cards on hover
+        document.querySelectorAll('.hover-lift').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorar Jogos - Review Center</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Freviewcen3462back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+<script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+</head>
+<body class="bg-background text-text-primary min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface border-b border-primary-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="home.html" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L3.09 8.26L4 21H20L20.91 8.26L12 2ZM12 4.44L18.18 9H5.82L12 4.44ZM6 11H18V19H6V11Z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-primary">Review Center</span>
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="home.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Início</a>
+                        <a href="search_and_explore.html" class="bg-primary text-background px-3 py-2 rounded-md text-sm font-medium">Explorar</a>
+                        <a href="about.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Sobre</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-text-secondary hover:text-primary p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface-800">
+                <a href="home.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="search_and_explore.html" class="bg-primary text-background block px-3 py-2 rounded-md text-base font-medium">Explorar</a>
+                <a href="about.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex min-h-screen">
+        <!-- Filter Sidebar -->
+        <aside id="filter-sidebar" class="hidden lg:block w-80 bg-surface border-r border-primary-accent p-6 overflow-y-auto">
+            <div class="space-y-6">
+                <!-- Search Filter -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Buscar Jogos</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-text-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </div>
+                        <input type="text" id="search-input" placeholder="Nome do jogo..." class="block w-full pl-10 pr-4 py-2 bg-surface-700 border border-primary-accent rounded-lg text-text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-gaming" />
+                    </div>
+                </div>
+
+                <!-- Publisher Filter -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Desenvolvedora</label>
+                    <select id="publisher-filter" class="w-full bg-surface-700 border border-primary-accent rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-gaming">
+                        <option value>Todas as desenvolvedoras</option>
+                        <option value="nintendo">Nintendo</option>
+                        <option value="rockstar">Rockstar Games</option>
+                        <option value="sony">Sony Interactive Entertainment</option>
+                        <option value="supergiant">Supergiant Games</option>
+                        <option value="valve">Valve Corporation</option>
+                        <option value="cd-projekt">CD Projekt RED</option>
+                        <option value="ubisoft">Ubisoft</option>
+                        <option value="ea">Electronic Arts</option>
+                    </select>
+                </div>
+
+                <!-- Genre Filter -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Gênero</label>
+                    <div class="space-y-2 max-h-40 overflow-y-auto">
+                        <label class="flex items-center">
+                            <input type="checkbox" value="action" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
+                            <span class="ml-2 text-sm text-text-secondary">Ação</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" value="adventure" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
+                            <span class="ml-2 text-sm text-text-secondary">Aventura</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" value="rpg" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
+                            <span class="ml-2 text-sm text-text-secondary">RPG</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" value="strategy" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
+                            <span class="ml-2 text-sm text-text-secondary">Estratégia</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" value="sports" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
+                            <span class="ml-2 text-sm text-text-secondary">Esportes</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" value="racing" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
+                            <span class="ml-2 text-sm text-text-secondary">Corrida</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Year Filter -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Ano de Lançamento</label>
+                    <div class="flex space-x-2">
+                        <input type="number" id="year-from" placeholder="De" min="1980" max="2025" class="w-1/2 bg-surface-700 border border-primary-accent rounded-lg px-3 py-2 text-text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-gaming" />
+                        <input type="number" id="year-to" placeholder="Até" min="1980" max="2025" class="w-1/2 bg-surface-700 border border-primary-accent rounded-lg px-3 py-2 text-text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-gaming" />
+                    </div>
+                </div>
+
+                <!-- Platform Filter -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Plataforma</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" value="pc" class="platform-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
+                            <span class="ml-2 text-sm text-text-secondary">PC</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" value="playstation" class="platform-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
+                            <span class="ml-2 text-sm text-text-secondary">PlayStation</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" value="xbox" class="platform-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
+                            <span class="ml-2 text-sm text-text-secondary">Xbox</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" value="nintendo" class="platform-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
+                            <span class="ml-2 text-sm text-text-secondary">Nintendo Switch</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Score Range Filter -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Pontuação Metacritic</label>
+                    <div class="flex space-x-2">
+                        <input type="number" id="score-from" placeholder="Min" min="0" max="100" class="w-1/2 bg-surface-700 border border-primary-accent rounded-lg px-3 py-2 text-text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-gaming" />
+                        <input type="number" id="score-to" placeholder="Max" min="0" max="100" class="w-1/2 bg-surface-700 border border-primary-accent rounded-lg px-3 py-2 text-text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-gaming" />
+                    </div>
+                </div>
+
+                <!-- Filter Actions -->
+                <div class="flex space-x-2">
+                    <button id="apply-filters" class="flex-1 bg-primary text-background px-4 py-2 rounded-lg font-medium hover:bg-primary-600 transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                        Aplicar Filtros
+                    </button>
+                    <button id="reset-filters" class="px-4 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Mobile Filter Button -->
+        <button id="mobile-filter-button" class="lg:hidden fixed bottom-6 right-6 bg-primary text-background p-3 rounded-full shadow-gaming z-50 hover:bg-primary-600 transition-gaming">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.414A1 1 0 013 6.707V4z"/>
+            </svg>
+        </button>
+
+        <!-- Mobile Filter Drawer -->
+        <div id="mobile-filter-drawer" class="lg:hidden fixed inset-0 z-50 hidden">
+            <div class="absolute inset-0 bg-background opacity-75" id="mobile-filter-overlay"></div>
+            <div class="absolute right-0 top-0 h-full w-80 bg-surface p-6 overflow-y-auto transform translate-x-full transition-transform duration-300" id="mobile-filter-content">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-lg font-semibold text-text-primary">Filtros</h2>
+                    <button id="close-mobile-filter" class="text-text-secondary hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Mobile filter content (same as sidebar) -->
+                <div class="space-y-6">
+                    <!-- Same filter content as sidebar -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-6">
+            <!-- KPI Dashboard -->
+            <section class="mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h1 class="text-3xl font-bold text-text-primary">Explorar Jogos</h1>
+                    <div class="w-12 h-1 bg-primary"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Total Games KPI -->
+                    <div class="bg-surface rounded-2xl p-6 card-shadow hover:shadow-gaming-hover transition-gaming">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-text-secondary text-sm">Total de Jogos</p>
+                                <p class="text-2xl font-bold text-text-primary" id="total-games">1,247</p>
+                            </div>
+                            <div class="w-12 h-12 bg-primary bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Average Metascore KPI -->
+                    <div class="bg-surface rounded-2xl p-6 card-shadow hover:shadow-gaming-hover transition-gaming">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-text-secondary text-sm">Metascore Médio</p>
+                                <p class="text-2xl font-bold text-text-primary" id="avg-metascore">78.5</p>
+                            </div>
+                            <div class="w-12 h-12 bg-secondary bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Average User Score KPI -->
+                    <div class="bg-surface rounded-2xl p-6 card-shadow hover:shadow-gaming-hover transition-gaming">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-text-secondary text-sm">Pontuação Usuários</p>
+                                <p class="text-2xl font-bold text-text-primary" id="avg-user-score">7.8</p>
+                            </div>
+                            <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top Publishers KPI -->
+                    <div class="bg-surface rounded-2xl p-6 card-shadow hover:shadow-gaming-hover transition-gaming">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-text-secondary text-sm">Desenvolvedoras</p>
+                                <p class="text-2xl font-bold text-text-primary" id="total-publishers">156</p>
+                            </div>
+                            <div class="w-12 h-12 bg-warning bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Charts -->
+            <section class="mb-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Critic vs User Score Chart -->
+                    <div class="bg-surface rounded-2xl p-6 card-shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-text-primary">Críticos vs Usuários por Gênero</h3>
+                            <div class="w-8 h-1 bg-primary"></div>
+                        </div>
+                        <div class="h-64 flex items-center justify-center">
+                            <!-- Chart Placeholder -->
+                            <svg class="w-full h-full" viewBox="0 0 400 200">
+                                <!-- Chart bars representing different genres -->
+                                <rect x="40" y="160" width="30" height="30" fill="#F5C400" opacity="0.8"/>
+                                <rect x="45" y="140" width="20" height="50" fill="#1DBA40" opacity="0.8"/>
+                                
+                                <rect x="100" y="150" width="30" height="40" fill="#F5C400" opacity="0.8"/>
+                                <rect x="105" y="130" width="20" height="60" fill="#1DBA40" opacity="0.8"/>
+                                
+                                <rect x="160" y="170" width="30" height="20" fill="#F5C400" opacity="0.8"/>
+                                <rect x="165" y="160" width="20" height="30" fill="#1DBA40" opacity="0.8"/>
+                                
+                                <rect x="220" y="140" width="30" height="50" fill="#F5C400" opacity="0.8"/>
+                                <rect x="225" y="120" width="20" height="70" fill="#1DBA40" opacity="0.8"/>
+                                
+                                <rect x="280" y="155" width="30" height="35" fill="#F5C400" opacity="0.8"/>
+                                <rect x="285" y="135" width="20" height="55" fill="#1DBA40" opacity="0.8"/>
+                                
+                                <!-- Labels -->
+                                <text x="55" y="205" fill="#B0B0B0" text-anchor="middle" font-size="12">Ação</text>
+                                <text x="115" y="205" fill="#B0B0B0" text-anchor="middle" font-size="12">RPG</text>
+                                <text x="175" y="205" fill="#B0B0B0" text-anchor="middle" font-size="12">Esporte</text>
+                                <text x="235" y="205" fill="#B0B0B0" text-anchor="middle" font-size="12">Aventura</text>
+                                <text x="295" y="205" fill="#B0B0B0" text-anchor="middle" font-size="12">Estratégia</text>
+                            </svg>
+                        </div>
+                        <div class="flex justify-center space-x-4 mt-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-primary rounded mr-2"></div>
+                                <span class="text-sm text-text-secondary">Críticos</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-secondary rounded mr-2"></div>
+                                <span class="text-sm text-text-secondary">Usuários</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Annual Gaming Trends Chart -->
+                    <div class="bg-surface rounded-2xl p-6 card-shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-text-primary">Tendências Anuais</h3>
+                            <div class="w-8 h-1 bg-primary"></div>
+                        </div>
+                        <div class="h-64 flex items-center justify-center">
+                            <!-- Line Chart Placeholder -->
+                            <svg class="w-full h-full" viewBox="0 0 400 200">
+                                <!-- Grid lines -->
+                                <line x1="40" y1="40" x2="40" y2="180" stroke="#404040" stroke-width="1"/>
+                                <line x1="40" y1="180" x2="360" y2="180" stroke="#404040" stroke-width="1"/>
+                                
+                                <!-- Trend line -->
+                                <polyline points="40,160 80,140 120,130 160,120 200,110 240,100 280,95 320,90 360,85" fill="none" stroke="#F5C400" stroke-width="3" opacity="0.8"/>
+                                
+                                <!-- Data points -->
+                                <circle cx="40" cy="160" r="4" fill="#F5C400"/>
+                                <circle cx="80" cy="140" r="4" fill="#F5C400"/>
+                                <circle cx="120" cy="130" r="4" fill="#F5C400"/>
+                                <circle cx="160" cy="120" r="4" fill="#F5C400"/>
+                                <circle cx="200" cy="110" r="4" fill="#F5C400"/>
+                                <circle cx="240" cy="100" r="4" fill="#F5C400"/>
+                                <circle cx="280" cy="95" r="4" fill="#F5C400"/>
+                                <circle cx="320" cy="90" r="4" fill="#F5C400"/>
+                                <circle cx="360" cy="85" r="4" fill="#F5C400"/>
+                                
+                                <!-- Year labels -->
+                                <text x="40" y="195" fill="#B0B0B0" text-anchor="middle" font-size="10">2017</text>
+                                <text x="120" y="195" fill="#B0B0B0" text-anchor="middle" font-size="10">2019</text>
+                                <text x="200" y="195" fill="#B0B0B0" text-anchor="middle" font-size="10">2021</text>
+                                <text x="280" y="195" fill="#B0B0B0" text-anchor="middle" font-size="10">2023</text>
+                                <text x="360" y="195" fill="#B0B0B0" text-anchor="middle" font-size="10">2025</text>
+                            </svg>
+                        </div>
+                        <div class="text-center mt-4">
+                            <span class="text-sm text-text-secondary">Pontuação média ao longo dos anos</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Table Section -->
+            <section>
+                <div class="bg-surface rounded-2xl card-shadow">
+                    <!-- Table Header -->
+                    <div class="p-6 border-b border-primary-accent">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-text-primary">Lista de Jogos</h3>
+                                <p class="text-sm text-text-secondary">Explore nossa base de dados completa</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button id="export-csv" class="bg-primary text-background px-4 py-2 rounded-lg font-medium hover:bg-primary-600 transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                    </svg>
+                                    Exportar CSV
+                                </button>
+                                <button id="table-density" class="border border-primary-accent text-text-secondary px-4 py-2 rounded-lg hover:bg-surface-700 transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table Content -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-surface-700">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider cursor-pointer hover:text-primary transition-gaming" data-sort="name">
+                                        Nome do Jogo
+                                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                        </svg>
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider cursor-pointer hover:text-primary transition-gaming" data-sort="metascore">
+                                        Metascore
+                                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                        </svg>
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider cursor-pointer hover:text-primary transition-gaming" data-sort="userscore">
+                                        Usuários
+                                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                        </svg>
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Desenvolvedora</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Plataformas</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider cursor-pointer hover:text-primary transition-gaming" data-sort="year">
+                                        Ano
+                                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                        </svg>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="games-table-body" class="bg-surface divide-y divide-primary-accent">
+                                <!-- Loading skeleton -->
+                                <tr class="loading-row">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-12 h-12 bg-surface-700 rounded-lg pulse-loading"></div>
+                                            <div class="space-y-2">
+                                                <div class="h-4 bg-surface-700 rounded w-32 pulse-loading"></div>
+                                                <div class="h-3 bg-surface-700 rounded w-24 pulse-loading"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="h-6 bg-surface-700 rounded w-12 pulse-loading"></div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="h-6 bg-surface-700 rounded w-12 pulse-loading"></div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="h-4 bg-surface-700 rounded w-24 pulse-loading"></div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="h-4 bg-surface-700 rounded w-20 pulse-loading"></div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="h-4 bg-surface-700 rounded w-16 pulse-loading"></div>
+                                    </td>
+                                </tr>
+                                <!-- Repeat loading rows -->
+                                <tr class="loading-row">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-12 h-12 bg-surface-700 rounded-lg pulse-loading"></div>
+                                            <div class="space-y-2">
+                                                <div class="h-4 bg-surface-700 rounded w-32 pulse-loading"></div>
+                                                <div class="h-3 bg-surface-700 rounded w-24 pulse-loading"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="h-6 bg-surface-700 rounded w-12 pulse-loading"></div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="h-6 bg-surface-700 rounded w-12 pulse-loading"></div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="h-4 bg-surface-700 rounded w-24 pulse-loading"></div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="h-4 bg-surface-700 rounded w-20 pulse-loading"></div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="h-4 bg-surface-700 rounded w-16 pulse-loading"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="px-6 py-4 border-t border-primary-accent">
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-text-secondary">
+                                Mostrando <span id="showing-from">1</span> a <span id="showing-to">20</span> de <span id="total-results">1247</span> resultados
+                            </div>
+                            <div class="flex space-x-2">
+                                <button id="prev-page" class="px-3 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                                    </svg>
+                                </button>
+                                <span class="px-3 py-2 bg-primary text-background rounded-lg font-medium">1</span>
+                                <button class="px-3 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming">2</button>
+                                <button class="px-3 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming">3</button>
+                                <span class="px-3 py-2 text-text-secondary">...</span>
+                                <button class="px-3 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming">63</button>
+                                <button id="next-page" class="px-3 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-4 right-4 bg-error text-background px-6 py-3 rounded-lg shadow-gaming transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span id="toast-message">Erro ao carregar dados</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-surface-900 border-t border-primary-accent py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Logo and Description -->
+                <div class="col-span-1">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L3.09 8.26L4 21H20L20.91 8.26L12 2ZM12 4.44L18.18 9H5.82L12 4.44ZM6 11H18V19H6V11Z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-primary">Review Center</span>
+                    </div>
+                    <p class="text-text-secondary text-sm">
+                        Sua fonte confiável para avaliações e análises de jogos. Descubra, compare e encontre seu próximo jogo favorito.
+                    </p>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="col-span-1">
+                    <h3 class="text-text-primary font-semibold mb-4">Navegação</h3>
+                    <ul class="space-y-2">
+                        <li><a href="home.html" class="text-text-secondary hover:text-primary transition-gaming">Início</a></li>
+                        <li><a href="search_and_explore.html" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a></li>
+                        <li><a href="game_details.html" class="text-text-secondary hover:text-primary transition-gaming">Detalhes do Jogo</a></li>
+                        <li><a href="about.html" class="text-text-secondary hover:text-primary transition-gaming">Sobre</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-span-1">
+                    <h3 class="text-text-primary font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li>contato@reviewcenter.com.br</li>
+                        <li>+55 (11) 9999-9999</li>
+                        <li>São Paulo, SP - Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-primary-accent mt-8 pt-8 text-center">
+                <p class="text-text-secondary text-sm">
+                    © 2025 Review Center. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mock game data
+        const mockGames = [
+            {
+                id: 1,
+                name: "The Legend of Zelda: Breath of the Wild",
+                metascore: 97,
+                userscore: 8.7,
+                publisher: "Nintendo",
+                platforms: ["Nintendo Switch"],
+                year: 2017,
+                genre: ["adventure", "action"],
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                id: 2,
+                name: "Red Dead Redemption 2",
+                metascore: 96,
+                userscore: 7.5,
+                publisher: "Rockstar Games",
+                platforms: ["PC", "PlayStation", "Xbox"],
+                year: 2018,
+                genre: ["action", "adventure"],
+                image: "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                id: 3,
+                name: "God of War",
+                metascore: 94,
+                userscore: 9.1,
+                publisher: "Sony Interactive Entertainment",
+                platforms: ["PlayStation", "PC"],
+                year: 2018,
+                genre: ["action", "adventure"],
+                image: "https://images.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg"
+            },
+            {
+                id: 4,
+                name: "Hades",
+                metascore: 93,
+                userscore: 9.2,
+                publisher: "Supergiant Games",
+                platforms: ["PC", "Nintendo Switch", "PlayStation", "Xbox"],
+                year: 2020,
+                genre: ["action", "rpg"],
+                image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                id: 5,
+                name: "Portal 2",
+                metascore: 95,
+                userscore: 9.1,
+                publisher: "Valve Corporation",
+                platforms: ["PC", "PlayStation", "Xbox"],
+                year: 2011,
+                genre: ["adventure", "strategy"],
+                image: "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                id: 6,
+                name: "The Witcher 3: Wild Hunt",
+                metascore: 92,
+                userscore: 9.0,
+                publisher: "CD Projekt RED",
+                platforms: ["PC", "PlayStation", "Xbox", "Nintendo Switch"],
+                year: 2015,
+                genre: ["rpg", "adventure"],
+                image: "https://images.pixabay.com/photo/2018/05/14/16/54/cyber-3400789_1280.jpg"
+            }
+        ];
+
+        let currentGames = [...mockGames];
+        let currentPage = 1;
+        const itemsPerPage = 20;
+
+        // DOM Elements
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileFilterButton = document.getElementById('mobile-filter-button');
+        const mobileFilterDrawer = document.getElementById('mobile-filter-drawer');
+        const mobileFilterOverlay = document.getElementById('mobile-filter-overlay');
+        const closeMobileFilter = document.getElementById('close-mobile-filter');
+        const mobileFilterContent = document.getElementById('mobile-filter-content');
+        const gamesTableBody = document.getElementById('games-table-body');
+        const toast = document.getElementById('toast');
+
+        // Mobile menu toggle
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile filter drawer
+        mobileFilterButton.addEventListener('click', () => {
+            mobileFilterDrawer.classList.remove('hidden');
+            setTimeout(() => {
+                mobileFilterContent.classList.remove('translate-x-full');
+            }, 10);
+        });
+
+        closeMobileFilter.addEventListener('click', closeMobileFilterDrawer);
+        mobileFilterOverlay.addEventListener('click', closeMobileFilterDrawer);
+
+        function closeMobileFilterDrawer() {
+            mobileFilterContent.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileFilterDrawer.classList.add('hidden');
+            }, 300);
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'error') {
+            const toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
+            
+            // Change toast color based on type
+            if (type === 'success') {
+                toast.className = toast.className.replace('bg-error', 'bg-success');
+            } else {
+                toast.className = toast.className.replace('bg-success', 'bg-error');
+            }
+            
+            toast.classList.remove('translate-x-full');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 3000);
+        }
+
+        // Render games table
+        function renderGamesTable() {
+            // Remove loading rows
+            document.querySelectorAll('.loading-row').forEach(row => row.remove());
+            
+            if (currentGames.length === 0) {
+                gamesTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="px-6 py-12 text-center">
+                            <div class="text-text-secondary">
+                                <svg class="w-12 h-12 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <p class="text-lg font-medium">Nenhum jogo encontrado</p>
+                                <p class="text-sm">Tente ajustar seus filtros de busca</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, currentGames.length);
+            const pageGames = currentGames.slice(startIndex, endIndex);
+
+            gamesTableBody.innerHTML = pageGames.map(game => `
+                <tr class="hover:bg-surface-700 transition-gaming cursor-pointer" onclick="window.location.href='game_details.html?id=${game.id}'">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                                <img 
+                                    src="${game.image}" 
+                                    alt="${game.name}" 
+                                    class="w-full h-full object-cover"
+                                    loading="lazy"
+                                    onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                                >
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <p class="text-sm font-medium text-text-primary truncate">${game.name}</p>
+                                <p class="text-sm text-text-secondary">${game.genre.map(g => g.charAt(0).toUpperCase() + g.slice(1)).join(', ')}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-sm inline-block">
+                            ${game.metascore}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-sm inline-block">
+                            ${game.userscore}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="text-sm text-text-primary">${game.publisher}</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="text-sm text-text-secondary">${game.platforms.join(', ')}</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="text-sm text-text-primary">${game.year}</span>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Update pagination info
+            document.getElementById('showing-from').textContent = startIndex + 1;
+            document.getElementById('showing-to').textContent = endIndex;
+            document.getElementById('total-results').textContent = currentGames.length;
+        }
+
+        // Filter functionality
+        function applyFilters() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const publisher = document.getElementById('publisher-filter').value;
+            const yearFrom = parseInt(document.getElementById('year-from').value) || 0;
+            const yearTo = parseInt(document.getElementById('year-to').value) || 9999;
+            const scoreFrom = parseInt(document.getElementById('score-from').value) || 0;
+            const scoreTo = parseInt(document.getElementById('score-to').value) || 100;
+            
+            const selectedGenres = Array.from(document.querySelectorAll('.genre-checkbox:checked')).map(cb => cb.value);
+            const selectedPlatforms = Array.from(document.querySelectorAll('.platform-checkbox:checked')).map(cb => cb.value);
+
+            currentGames = mockGames.filter(game => {
+                const matchesSearch = game.name.toLowerCase().includes(searchTerm);
+                const matchesPublisher = !publisher || game.publisher.toLowerCase().includes(publisher);
+                const matchesYear = game.year >= yearFrom && game.year <= yearTo;
+                const matchesScore = game.metascore >= scoreFrom && game.metascore <= scoreTo;
+                const matchesGenre = selectedGenres.length === 0 || selectedGenres.some(genre => game.genre.includes(genre));
+                const matchesPlatform = selectedPlatforms.length === 0 || selectedPlatforms.some(platform => 
+                    game.platforms.some(p => p.toLowerCase().includes(platform))
+                );
+
+                return matchesSearch && matchesPublisher && matchesYear && matchesScore && matchesGenre && matchesPlatform;
+            });
+
+            currentPage = 1;
+            renderGamesTable();
+            showToast('Filtros aplicados com sucesso!', 'success');
+        }
+
+        // Reset filters
+        function resetFilters() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('publisher-filter').value = '';
+            document.getElementById('year-from').value = '';
+            document.getElementById('year-to').value = '';
+            document.getElementById('score-from').value = '';
+            document.getElementById('score-to').value = '';
+            document.querySelectorAll('.genre-checkbox').forEach(cb => cb.checked = false);
+            document.querySelectorAll('.platform-checkbox').forEach(cb => cb.checked = false);
+            
+            currentGames = [...mockGames];
+            currentPage = 1;
+            renderGamesTable();
+            showToast('Filtros resetados', 'success');
+        }
+
+        // Export CSV functionality
+        function exportCSV() {
+            const headers = ['Nome', 'Metascore', 'Pontuação Usuários', 'Desenvolvedora', 'Plataformas', 'Ano'];
+            const csvContent = [
+                headers.join(','),
+                ...currentGames.map(game => [
+                    `"${game.name}"`,
+                    game.metascore,
+                    game.userscore,
+                    `"${game.publisher}"`,
+                    `"${game.platforms.join('; ')}"`,
+                    game.year
+                ].join(','))
+            ].join('\n');
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'jogos_review_center.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showToast('CSV exportado com sucesso!', 'success');
+        }
+
+        // Table sorting
+        function sortTable(column) {
+            const isAscending = !currentGames.sortAscending || currentGames.lastSortColumn !== column;
+            
+            currentGames.sort((a, b) => {
+                let aVal = a[column];
+                let bVal = b[column];
+                
+                if (typeof aVal === 'string') {
+                    aVal = aVal.toLowerCase();
+                    bVal = bVal.toLowerCase();
+                }
+                
+                if (isAscending) {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+            
+            currentGames.sortAscending = isAscending;
+            currentGames.lastSortColumn = column;
+            
+            renderGamesTable();
+        }
+
+        // Event listeners
+        document.getElementById('apply-filters').addEventListener('click', applyFilters);
+        document.getElementById('reset-filters').addEventListener('click', resetFilters);
+        document.getElementById('export-csv').addEventListener('click', exportCSV);
+
+        // Search with debounce
+        let searchTimeout;
+        document.getElementById('search-input').addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(applyFilters, 300);
+        });
+
+        // Table sorting event listeners
+        document.querySelectorAll('[data-sort]').forEach(header => {
+            header.addEventListener('click', () => {
+                const column = header.getAttribute('data-sort');
+                sortTable(column);
+            });
+        });
+
+        // Initialize page
+        setTimeout(() => {
+            renderGamesTable();
+        }, 1000); // Simulate loading time
+
+        // URL parameter handling
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('q');
+        if (searchQuery) {
+            document.getElementById('search-input').value = searchQuery;
+            setTimeout(() => {
+                applyFilters();
+            }, 1100);
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

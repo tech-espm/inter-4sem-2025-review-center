@@ -1,164 +1,386 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Center - Descubra os Melhores Jogos</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-{% block body %}
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Freviewcen3462back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+<script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+</head>
+<body class="bg-background text-text-primary min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface border-b border-primary-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="home.html" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L3.09 8.26L4 21H20L20.91 8.26L12 2ZM12 4.44L18.18 9H5.82L12 4.44ZM6 11H18V19H6V11Z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-primary">Review Center</span>
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="home.html" class="bg-primary text-background px-3 py-2 rounded-md text-sm font-medium">Início</a>
+                        <a href="search_and_explore.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Explorar</a>
+                        <a href="about.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Sobre</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-text-secondary hover:text-primary p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface-800">
+                <a href="home.html" class="bg-primary text-background block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="search_and_explore.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Explorar</a>
+                <a href="about.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+            </div>
+        </div>
+    </nav>
 
-<div class="container-fluid">
+    <!-- Hero Section -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gaming Background" class="w-full h-full object-cover filter blur-sm" loading="lazy" onerror="this.src='https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+            <div class="absolute inset-0 bg-background opacity-70"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <!-- Yellow accent line above -->
+            <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold text-text-primary mb-4 text-shadow-sm">
+                Descubra os Melhores Jogos
+            </h1>
+            <p class="text-xl md:text-2xl text-text-secondary mb-8 max-w-2xl mx-auto">
+                Explore avaliações, análises e descubra seu próximo jogo favorito
+            </p>
+            
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto mb-8">
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-text-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                    <input type="text" id="hero-search" placeholder="Buscar jogos, desenvolvedores, gêneros..." class="block w-full pl-10 pr-12 py-4 text-lg bg-surface border-2 border-primary-accent rounded-2xl text-text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-gaming" />
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                        <button id="search-button" class="bg-primary text-background px-6 py-2 rounded-xl font-medium hover:bg-primary-600 transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Yellow accent line below -->
+            <div class="w-24 h-1 bg-primary mx-auto"></div>
+        </div>
+    </section>
 
-	<h1>
-		Projeto
-	</h1>
+    <!-- Ranking Cards Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Top Metascore Card -->
+            <div class="bg-surface rounded-2xl p-6 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-text-primary">Top Metascore</h2>
+                    <div class="w-12 h-1 bg-primary"></div>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- Game 1 -->
+                    <div class="flex items-center space-x-4 p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming cursor-pointer" onclick="window.location.href='game_details.html'">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="The Legend of Zelda: Breath of the Wild" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg'; this.onerror=null;" />
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-lg font-semibold text-text-primary truncate">The Legend of Zelda: Breath of the Wild</h3>
+                            <p class="text-sm text-text-secondary">Nintendo • 2017</p>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-lg">
+                                97
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game 2 -->
+                    <div class="flex items-center space-x-4 p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming cursor-pointer" onclick="window.location.href='game_details.html'">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Red Dead Redemption 2" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-lg font-semibold text-text-primary truncate">Red Dead Redemption 2</h3>
+                            <p class="text-sm text-text-secondary">Rockstar Games • 2018</p>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-lg">
+                                96
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game 3 -->
+                    <div class="flex items-center space-x-4 p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming cursor-pointer" onclick="window.location.href='game_details.html'">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src="https://images.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg" alt="God of War" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-lg font-semibold text-text-primary truncate">God of War</h3>
+                            <p class="text-sm text-text-secondary">Sony Interactive Entertainment • 2018</p>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-lg">
+                                94
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <a href="search_and_explore.html" class="inline-flex items-center text-primary hover:text-primary-600 font-medium transition-gaming">
+                        Ver todos os jogos
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Top User Score Card -->
+            <div class="bg-surface rounded-2xl p-6 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-text-primary">Top Pontuação dos Usuários</h2>
+                    <div class="w-12 h-1 bg-primary"></div>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- Game 1 -->
+                    <div class="flex items-center space-x-4 p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming cursor-pointer" onclick="window.location.href='game_details.html'">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hades" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg'; this.onerror=null;" />
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-lg font-semibold text-text-primary truncate">Hades</h3>
+                            <p class="text-sm text-text-secondary">Supergiant Games • 2020</p>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-lg">
+                                9.2
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game 2 -->
+                    <div class="flex items-center space-x-4 p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming cursor-pointer" onclick="window.location.href='game_details.html'">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src="https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Portal 2" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-lg font-semibold text-text-primary truncate">Portal 2</h3>
+                            <p class="text-sm text-text-secondary">Valve Corporation • 2011</p>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-lg">
+                                9.1
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game 3 -->
+                    <div class="flex items-center space-x-4 p-4 bg-surface-700 rounded-xl hover:bg-surface-600 transition-gaming cursor-pointer" onclick="window.location.href='game_details.html'">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src="https://images.pixabay.com/photo/2018/05/14/16/54/cyber-3400789_1280.jpg" alt="The Witcher 3: Wild Hunt" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-lg font-semibold text-text-primary truncate">The Witcher 3: Wild Hunt</h3>
+                            <p class="text-sm text-text-secondary">CD Projekt RED • 2015</p>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-lg">
+                                9.0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <a href="search_and_explore.html" class="inline-flex items-center text-primary hover:text-primary-600 font-medium transition-gaming">
+                        Ver todos os jogos
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<div class="row">
-		<div class="col-sm-4">
+    <!-- Call to Action Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-surface">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+            <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+                Pronto para Explorar?
+            </h2>
+            <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
+                Descubra análises detalhadas, compare pontuações e encontre seu próximo jogo favorito
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="search_and_explore.html" class="bg-primary text-background px-8 py-3 rounded-xl font-semibold hover:bg-primary-600 transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                    Explorar Jogos
+                </a>
+                <a href="about.html" class="border-2 border-primary text-primary px-8 py-3 rounded-xl font-semibold hover:bg-primary hover:text-background transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                    Saiba Mais
+                </a>
+            </div>
+            <div class="w-24 h-1 bg-primary mx-auto mt-6"></div>
+        </div>
+    </section>
 
-			<div class="card shadow my-4">
-				<div class="card-body">
-					<form id="form">
-						<div class="form-group">
-							<label for="data">Data</label>
-							<input id="data" name="data" class="form-control" type="date" value="{{ hoje }}" />
-						</div>
+    <!-- Footer -->
+    <footer class="bg-surface-900 border-t border-primary-accent py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Logo and Description -->
+                <div class="col-span-1">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L3.09 8.26L4 21H20L20.91 8.26L12 2ZM12 4.44L18.18 9H5.82L12 4.44ZM6 11H18V19H6V11Z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-primary">Review Center</span>
+                    </div>
+                    <p class="text-text-secondary text-sm">
+                        Sua fonte confiável para avaliações e análises de jogos. Descubra, compare e encontre seu próximo jogo favorito.
+                    </p>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="col-span-1">
+                    <h3 class="text-text-primary font-semibold mb-4">Navegação</h3>
+                    <ul class="space-y-2">
+                        <li><a href="home.html" class="text-text-secondary hover:text-primary transition-gaming">Início</a></li>
+                        <li><a href="search_and_explore.html" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a></li>
+                        <li><a href="game_details.html" class="text-text-secondary hover:text-primary transition-gaming">Detalhes do Jogo</a></li>
+                        <li><a href="about.html" class="text-text-secondary hover:text-primary transition-gaming">Sobre</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-span-1">
+                    <h3 class="text-text-primary font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li>contato@reviewcenter.com.br</li>
+                        <li>+55 (11) 9999-9999</li>
+                        <li>São Paulo, SP - Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-primary-accent mt-8 pt-8 text-center">
+                <p class="text-text-secondary text-sm">
+                    © 2025 Review Center. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
 
-						<button type="submit" class="btn btn-primary">Listar</button>
-					</form>
-				</div>
-			</div>
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-		</div>
-	</div>
+        // Search functionality with debounce
+        let searchTimeout;
+        const heroSearch = document.getElementById('hero-search');
+        const searchButton = document.getElementById('search-button');
 
-	<div class="card shadow my-4">
-		<div class="card-body" id="div-grafico"></div>
-	</div>
+        function performSearch() {
+            const query = heroSearch.value.trim();
+            if (query) {
+                // Redirect to search page with query parameter
+                window.location.href = `search_and_explore.html?q=${encodeURIComponent(query)}`;
+            }
+        }
 
-</div>
+        // Debounced search on input
+        heroSearch.addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                // Could implement real-time suggestions here
+                console.log('Search query:', heroSearch.value);
+            }, 300);
+        });
 
-<script src="/static/js/jquery-validate/jquery.validate.min.js"></script>
-<script src="/static/js/jquery-validate/additional-methods.min.js"></script>
-<script src="/static/js/jquery-validate/localization/messages_pt_BR.min.js"></script>
-<script type="text/javascript" src="/static/js/chart.js/chart.min.js"></script>
+        // Search on Enter key
+        heroSearch.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
+        });
 
-<script type="text/javascript">
-	"use strict";
+        // Search button click
+        searchButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            performSearch();
+        });
 
-	$("#form").validate({
-		rules: {
-			data: {
-				required: true
-			}
-		},
-		submitHandler: function () {
-			atualizarDados();
-		}
-	});
+        // Add loading animation to cards on hover
+        document.querySelectorAll('.hover-lift').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
 
-	async function atualizarDados() {
-		waitSwal();
-
-		try {
-
-			let response = await fetch("/obterDados");
-
-			if (response.ok) {
-
-				Swal.close();
-
-				let div = document.getElementById("div-grafico");
-				div.innerHTML = '<canvas id="grafico-barras" style="height: 50vh;"></canvas>';
-
-				let labels = [], data = [];
-
-				let dados = await response.json();
-				if (!dados || !dados.length) {
-					Swal.fire("Erro", "Sem dados na data especificada!", "error");
-					return;
-				}
-
-				for (let i = 0; i < dados.length; i++) {
-					labels.push(dados[i].dia);
-					data.push(dados[i].valor);
-				}
-
-				let grafico = new Chart(document.getElementById("grafico-barras"), {
-					type: "bar",
-					data: {
-						labels: labels,
-						datasets: [{
-							label: "Valor",
-							backgroundColor: "#4e73df",
-							hoverBackgroundColor: "#2e59d9",
-							borderColor: "#4e73df",
-							data: data,
-						}],
-					},
-					options: {
-						maintainAspectRatio: false,
-						layout: {
-							padding: {
-								left: 10,
-								right: 25,
-								top: 25,
-								bottom: 0
-							}
-						},
-						scales: {
-							x: {
-								gridLines: {
-									display: false,
-									drawBorder: false
-								},
-								ticks: {
-									maxTicksLimit: 10
-								},
-								maxBarThickness: 25,
-							},
-							y: {
-								//display: false,
-								ticks: {
-									min: 0,
-									max: 10,
-									maxTicksLimit: 10,
-									padding: 10
-								},
-								gridLines: {
-									color: "rgb(234, 236, 244)",
-									zeroLineColor: "rgb(234, 236, 244)",
-									drawBorder: false,
-									borderDash: [2],
-									zeroLineBorderDash: [2]
-								}
-							},
-						},
-						legend: {
-							display: false
-						},
-						tooltips: {
-							titleMarginBottom: 10,
-							titleFontColor: '#6e707e',
-							titleFontSize: 14,
-							backgroundColor: "rgb(255,255,255)",
-							bodyFontColor: "#858796",
-							borderColor: '#dddfeb',
-							borderWidth: 1,
-							xPadding: 15,
-							yPadding: 15,
-							displayColors: false,
-							caretPadding: 10
-						},
-					}
-				});
-
-			} else {
-				await exibirErro(response);
-			}
-
-		} catch (ex) {
-			Swal.fire("Erro", "Erro ao listar os dados: " + ex.message, "error");
-		}
-	}
-
-	atualizarDados();
-
-</script>
-
-{% endblock %}
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

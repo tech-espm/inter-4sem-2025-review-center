@@ -13,6 +13,14 @@ def index():
 def sobre():
     return render_template('index/sobre.html', titulo='Sobre Nós')
 
+@app.get('/detalhes')
+def detalhes():
+    return render_template('index/detalhes.html', titulo='Detalhes do jogo')
+
+@app.get('/pesquisa')
+def pesquisa():
+    return render_template('index/pesquisa.html', titulo='Procurar')
+
 @app.get('/obterDados')
 def obterDados():
     dados = [

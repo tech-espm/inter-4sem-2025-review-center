@@ -4,12 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explorar Jogos - Review Center</title>
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Freviewcen3462back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
-<script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
 </head>
 <body class="bg-background text-text-primary min-h-screen">
     <!-- Navigation Header -->
@@ -18,7 +16,7 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="home.html" class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center space-x-2">
                         <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                             <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2L3.09 8.26L4 21H20L20.91 8.26L12 2ZM12 4.44L18.18 9H5.82L12 4.44ZM6 11H18V19H6V11Z"/>
@@ -31,9 +29,9 @@
                 <!-- Navigation Links -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="home.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Início</a>
-                        <a href="search_and_explore.html" class="bg-primary text-background px-3 py-2 rounded-md text-sm font-medium">Explorar</a>
-                        <a href="about.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Sobre</a>
+                        <a href="/" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Início</a>
+                        <a href="/pesquisa" class="bg-primary text-background px-3 py-2 rounded-md text-sm font-medium">Explorar</a>
+                        <a href="/sobre" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Sobre</a>
                     </div>
                 </div>
                 
@@ -51,9 +49,9 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface-800">
-                <a href="home.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Início</a>
-                <a href="search_and_explore.html" class="bg-primary text-background block px-3 py-2 rounded-md text-base font-medium">Explorar</a>
-                <a href="about.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <a href="/" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="/pesquisa" class="bg-primary text-background block px-3 py-2 rounded-md text-base font-medium">Explorar</a>
+                <a href="/sobre" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
             </div>
         </div>
     </nav>
@@ -547,10 +545,10 @@
                 <div class="col-span-1">
                     <h3 class="text-text-primary font-semibold mb-4">Navegação</h3>
                     <ul class="space-y-2">
-                        <li><a href="home.html" class="text-text-secondary hover:text-primary transition-gaming">Início</a></li>
-                        <li><a href="search_and_explore.html" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a></li>
-                        <li><a href="game_details.html" class="text-text-secondary hover:text-primary transition-gaming">Detalhes do Jogo</a></li>
-                        <li><a href="about.html" class="text-text-secondary hover:text-primary transition-gaming">Sobre</a></li>
+                        <li><a href="/" class="text-text-secondary hover:text-primary transition-gaming">Início</a></li>
+                        <li><a href="/pesquisa" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a></li>
+                        <li><a href="/detalhes" class="text-text-secondary hover:text-primary transition-gaming">Detalhes do Jogo</a></li>
+                        <li><a href="/sobre" class="text-text-secondary hover:text-primary transition-gaming">Sobre</a></li>
                     </ul>
                 </div>
                 
@@ -729,7 +727,7 @@
             const pageGames = currentGames.slice(startIndex, endIndex);
 
             gamesTableBody.innerHTML = pageGames.map(game => `
-                <tr class="hover:bg-surface-700 transition-gaming cursor-pointer" onclick="window.location.href='game_details.html?id=${game.id}'">
+                <tr class="hover:bg-surface-700 transition-gaming cursor-pointer" onclick="window.location.href='/detalhes?id=${game.id}'">
                     <td class="px-6 py-4">
                         <div class="flex items-center space-x-4">
                             <div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">

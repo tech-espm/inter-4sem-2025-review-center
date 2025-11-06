@@ -4,12 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Legend of Zelda: Breath of the Wild - Review Center</title>
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Freviewcen3462back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
-<script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
 </head>
 <body class="bg-background text-text-primary min-h-screen">
     <!-- Navigation Header -->
@@ -18,7 +16,7 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="home.html" class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center space-x-2">
                         <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                             <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2L3.09 8.26L4 21H20L20.91 8.26L12 2ZM12 4.44L18.18 9H5.82L12 4.44ZM6 11H18V19H6V11Z"/>
@@ -31,9 +29,9 @@
                 <!-- Navigation Links -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="home.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Início</a>
-                        <a href="search_and_explore.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Explorar</a>
-                        <a href="about.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Sobre</a>
+                        <a href="/" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Início</a>
+                        <a href="/pesquisa" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Explorar</a>
+                        <a href="/sobre" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-gaming">Sobre</a>
                     </div>
                 </div>
                 
@@ -51,9 +49,9 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface-800">
-                <a href="home.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Início</a>
-                <a href="search_and_explore.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Explorar</a>
-                <a href="about.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <a href="/" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="/pesquisa" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Explorar</a>
+                <a href="/sobre" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
             </div>
         </div>
     </nav>
@@ -63,7 +61,7 @@
         <nav class="flex" aria-label="Breadcrumb">
             <ol class="flex items-center space-x-2 text-sm">
                 <li>
-                    <a href="home.html" class="text-text-secondary hover:text-primary transition-gaming">
+                    <a href="/" class="text-text-secondary hover:text-primary transition-gaming">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                         </svg>
@@ -73,7 +71,7 @@
                     <svg class="w-4 h-4 text-text-tertiary mx-2" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M9 5l7 7-7 7"/>
                     </svg>
-                    <a href="search_and_explore.html" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a>
+                    <a href="/pesquisa" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a>
                 </li>
                 <li class="flex items-center">
                     <svg class="w-4 h-4 text-text-tertiary mx-2" fill="currentColor" viewBox="0 0 24 24">
@@ -614,7 +612,7 @@
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Related Game 1 -->
-            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='game_details.html'">
+            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='/detalhes'">
                 <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4">
                     <img src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Super Mario Odyssey" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg'; this.onerror=null;" />
                 </div>
@@ -627,7 +625,7 @@
             </div>
             
             <!-- Related Game 2 -->
-            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='game_details.html'">
+            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='/detalhes'">
                 <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4">
                     <img src="https://images.pixabay.com/photo/2018/05/14/16/54/cyber-3400789_1280.jpg" alt="The Witcher 3: Wild Hunt" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
                 </div>
@@ -640,7 +638,7 @@
             </div>
             
             <!-- Related Game 3 -->
-            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='game_details.html'">
+            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='/detalhes'">
                 <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4">
                     <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hades" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
                 </div>
@@ -653,7 +651,7 @@
             </div>
             
             <!-- Related Game 4 -->
-            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='game_details.html'">
+            <div class="bg-surface rounded-2xl p-4 card-shadow hover:shadow-gaming-hover transition-gaming hover-lift cursor-pointer" onclick="window.location.href='/detalhes'">
                 <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4">
                     <img src="https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="God of War" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2018/05/14/16/54/cyber-3400789_1280.jpg'; this.onerror=null;" />
                 </div>
@@ -690,10 +688,10 @@
                 <div class="col-span-1">
                     <h3 class="text-text-primary font-semibold mb-4">Navegação</h3>
                     <ul class="space-y-2">
-                        <li><a href="home.html" class="text-text-secondary hover:text-primary transition-gaming">Início</a></li>
-                        <li><a href="search_and_explore.html" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a></li>
-                        <li><a href="game_details.html" class="text-text-secondary hover:text-primary transition-gaming">Detalhes do Jogo</a></li>
-                        <li><a href="about.html" class="text-text-secondary hover:text-primary transition-gaming">Sobre</a></li>
+                        <li><a href="/" class="text-text-secondary hover:text-primary transition-gaming">Início</a></li>
+                        <li><a href="/pesquisa" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a></li>
+                        <li><a href="/detalhes" class="text-text-secondary hover:text-primary transition-gaming">Detalhes do Jogo</a></li>
+                        <li><a href="/sobre" class="text-text-secondary hover:text-primary transition-gaming">Sobre</a></li>
                     </ul>
                 </div>
                 

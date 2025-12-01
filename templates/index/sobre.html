@@ -16,13 +16,8 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="/" class="flex items-center space-x-2">
-                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-background" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2L3.09 8.26L4 21H20L20.91 8.26L12 2ZM12 4.44L18.18 9H5.82L12 4.44ZM6 11H18V19H6V11Z"/>
-                            </svg>
-                        </div>
-                        <span class="text-xl font-bold text-primary">Review Center</span>
+                    <a href="/" class="flex items-center space-x-2 logo-rc">
+                        <img src="/static/img/logo.png"/>
                     </a>
                 </div>
                 
@@ -155,106 +150,10 @@
                         </div>
                     </div>
                 </section>
-
-                <!-- Technical Implementation Section -->
-                <section class="bg-surface rounded-2xl p-8 card-shadow">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mr-4">
-                            <svg class="w-6 h-6 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                            </svg>
-                        </div>
-                        <h2 class="text-3xl font-bold text-text-primary">Implementação Técnica</h2>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-surface-700 rounded-xl p-6">
-                            <h3 class="text-lg font-semibold text-text-primary mb-3">Frontend</h3>
-                            <ul class="space-y-2 text-text-secondary">
-                                <li class="flex items-center">
-                                    <div class="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
-                                    HTML5, CSS3, JavaScript Vanilla
-                                </li>
-                                <li class="flex items-center">
-                                    <div class="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
-                                    Tailwind CSS para estilização
-                                </li>
-                                <li class="flex items-center">
-                                    <div class="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
-                                    Design responsivo mobile-first
-                                </li>
-                                <li class="flex items-center">
-                                    <div class="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
-                                    Acessibilidade WCAG 2.2+
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-surface-700 rounded-xl p-6">
-                            <h3 class="text-lg font-semibold text-text-primary mb-3">Bibliotecas</h3>
-                            <ul class="space-y-2 text-text-secondary">
-                                <li class="flex items-center">
-                                    <div class="w-1.5 h-1.5 bg-secondary rounded-full mr-3"></div>
-                                    TanStack Table para tabelas avançadas
-                                </li>
-                                <li class="flex items-center">
-                                    <div class="w-1.5 h-1.5 bg-secondary rounded-full mr-3"></div>
-                                    Recharts para visualizações
-                                </li>
-                                <li class="flex items-center">
-                                    <div class="w-1.5 h-1.5 bg-secondary rounded-full mr-3"></div>
-                                    Mock Service Worker (MSW)
-                                </li>
-                                <li class="flex items-center">
-                                    <div class="w-1.5 h-1.5 bg-secondary rounded-full mr-3"></div>
-                                    TanStack Query para cache
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
             </div>
 
             <!-- Sidebar Content -->
             <div class="lg:col-span-1 space-y-8">
-                <!-- SDG Goals Section -->
-                <section class="bg-surface rounded-2xl p-6 card-shadow">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
-                            <svg class="w-5 h-5 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h2 class="text-2xl font-bold text-text-primary">Objetivos de Desenvolvimento Sustentável</h2>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="bg-surface-700 rounded-lg p-4">
-                            <div class="flex items-center mb-2">
-                                <div class="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center mr-3">
-                                    <span class="text-background font-bold text-sm">8</span>
-                                </div>
-                                <h3 class="font-semibold text-text-primary">ODS 8</h3>
-                            </div>
-                            <p class="text-sm text-text-secondary">
-                                <strong>Trabalho Decente e Crescimento Econômico:</strong> Promovemos o crescimento econômico na indústria gaming através de dados transparentes que auxiliam desenvolvedores e publishers na tomada de decisões estratégicas.
-                            </p>
-                        </div>
-                        
-                        <div class="bg-surface-700 rounded-lg p-4">
-                            <div class="flex items-center mb-2">
-                                <div class="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center mr-3">
-                                    <span class="text-background font-bold text-sm">9</span>
-                                </div>
-                                <h3 class="font-semibold text-text-primary">ODS 9</h3>
-                            </div>
-                            <p class="text-sm text-text-secondary">
-                                <strong>Indústria, Inovação e Infraestrutura:</strong> Fomentamos a inovação tecnológica através de ferramentas analíticas avançadas e infraestrutura de dados acessível para toda a comunidade gaming.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
                 <!-- Team Section -->
                 <section class="bg-surface rounded-2xl p-6 card-shadow">
                     <div class="flex items-center mb-4">
@@ -269,32 +168,8 @@
                     <div class="space-y-4">
                         <div class="bg-surface-700 rounded-lg p-4">
                             <div class="flex items-center mb-2">
-                                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-background font-bold text-sm">RC</span>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-text-primary">Review Center Team</h3>
-                                    <p class="text-sm text-text-secondary">Desenvolvimento Full-Stack</p>
-                                </div>
+                                <img src="/static/img/nossafoto.jpg" alt="Nossa foto">
                             </div>
-                            <p class="text-sm text-text-secondary">
-                                Especialistas em desenvolvimento web, análise de dados gaming e experiência do usuário, dedicados a criar ferramentas inovadoras para a comunidade gamer.
-                            </p>
-                        </div>
-                        
-                        <div class="bg-surface-700 rounded-lg p-4">
-                            <div class="flex items-center mb-2">
-                                <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-background font-bold text-sm">DA</span>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-text-primary">Data Analytics</h3>
-                                    <p class="text-sm text-text-secondary">Análise e Ciência de Dados</p>
-                                </div>
-                            </div>
-                            <p class="text-sm text-text-secondary">
-                                Especialistas em algoritmos de scoring, análise estatística e visualização de dados para insights precisos sobre tendências gaming.
-                            </p>
                         </div>
                     </div>
                 </section>

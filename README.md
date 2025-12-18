@@ -10,6 +10,10 @@
 
 ## Visão Geral
 
+Este projeto teve como ponto de partida a aplicação prática da ferramenta Selenium, com o objetivo de realizar raspagem de dados em um ambiente real. A proposta consistiu em automatizar a navegação em páginas do site Metacritic para extrair informações estruturadas sobre jogos, simulando o comportamento de um usuário real no navegador.
+
+Durante essa etapa, foram coletados dados como nome do jogo, publisher, gênero, ano de lançamento, Metascore, avaliações da crítica e dos usuários, além da classificação indicativa. Após a coleta, os dados passaram por processos de tratamento e organização em Python, sendo então armazenados em um banco de dados SQL para posterior utilização.
+
 ## Participantes
 
 - [José Longo Neto](https://github.com/Jose-Longo-A)
@@ -21,9 +25,9 @@
 
 ## Objetivos do Projeto
 
-O objetivo principal deste projeto foi a aplicação prática da ferramenta Selenium para realização de raspagem de dados em um ambiente real. A partir desse desafio, surgiu o Review Center, uma plataforma desenvolvida para coletar, organizar e analisar dados de jogos a partir do site Metacritic.
+A partir da etapa de raspagem, surgiu o Review Center, uma plataforma desenvolvida para organizar, analisar e visualizar os dados coletados. O objetivo do projeto é transformar informações brutas em análises claras e acessíveis, permitindo comparações entre a percepção da crítica especializada e do público, além da identificação de padrões relacionados a publishers, gêneros e períodos de lançamento.
 
-Utilizando o Selenium, foi possível extrair informações como nome do jogo, publisher, gênero, ano de lançamento, Metascore, avaliações da crítica e dos usuários. Esses dados foram armazenados em um banco de dados relacional e utilizados para gerar visualizações e análises comparativas, permitindo explorar diferenças entre a percepção da crítica especializada e do público, além de identificar padrões no mercado de jogos digitais.
+O Review Center disponibiliza essas análises por meio de uma aplicação web com tabelas, filtros e gráficos interativos, facilitando a exploração dos dados e a geração de insights sobre o mercado de jogos digitais.
 
 ## Configuração do Projeto
 

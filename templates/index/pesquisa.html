@@ -56,63 +56,16 @@
         <!-- Filter Sidebar -->
         <aside id="filter-sidebar" class="hidden lg:block w-80 bg-surface border-r border-primary-accent p-6 overflow-y-auto">
             <div class="space-y-6">
-                <!-- Search Filter -->
-                <div>
-                    <label class="block text-sm font-medium text-text-primary mb-2">Buscar Jogos</label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-4 w-4 text-text-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                            </svg>
-                        </div>
-                        <input type="text" id="search-input" placeholder="Nome do jogo..." class="block w-full pl-10 pr-4 py-2 bg-surface-700 border border-primary-accent rounded-lg text-text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-gaming" />
-                    </div>
-                </div>
 
-                <!-- Publisher Filter -->
-                <div>
-                    <label class="block text-sm font-medium text-text-primary mb-2">Desenvolvedora</label>
-                    <select id="publisher-filter" class="w-full bg-surface-700 border border-primary-accent rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-gaming">
-                        <option value>Todas as desenvolvedoras</option>
-                        <option value="nintendo">Nintendo</option>
-                        <option value="rockstar">Rockstar Games</option>
-                        <option value="sony">Sony Interactive Entertainment</option>
-                        <option value="supergiant">Supergiant Games</option>
-                        <option value="valve">Valve Corporation</option>
-                        <option value="cd-projekt">CD Projekt RED</option>
-                        <option value="ubisoft">Ubisoft</option>
-                        <option value="ea">Electronic Arts</option>
-                    </select>
-                </div>
+                <div class="filter-section">
+                    <button type="button" id="toggle-genres"
+                            class="w-full flex items-center justify-between text-left font-semibold text-white mb-2">
+                        <span>Gênero</span>
+                        <span id="toggle-genres-icon">▾</span>
+                    </button>
 
-                <!-- Genre Filter -->
-                <div>
-                    <label class="block text-sm font-medium text-text-primary mb-2">Gênero</label>
-                    <div class="space-y-2 max-h-40 overflow-y-auto">
-                        <label class="flex items-center">
-                            <input type="checkbox" value="action" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
-                            <span class="ml-2 text-sm text-text-secondary">Ação</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" value="adventure" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
-                            <span class="ml-2 text-sm text-text-secondary">Aventura</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" value="rpg" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
-                            <span class="ml-2 text-sm text-text-secondary">RPG</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" value="strategy" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
-                            <span class="ml-2 text-sm text-text-secondary">Estratégia</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" value="sports" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
-                            <span class="ml-2 text-sm text-text-secondary">Esportes</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" value="racing" class="genre-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
-                            <span class="ml-2 text-sm text-text-secondary">Corrida</span>
-                        </label>
+                    <div id="genre-list" class="space-y-2 hidden">
+                        <!-- checkboxes entram aqui via JS -->
                     </div>
                 </div>
 
@@ -125,37 +78,6 @@
                     </div>
                 </div>
 
-                <!-- Platform Filter -->
-                <div>
-                    <label class="block text-sm font-medium text-text-primary mb-2">Plataforma</label>
-                    <div class="space-y-2">
-                        <label class="flex items-center">
-                            <input type="checkbox" value="pc" class="platform-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
-                            <span class="ml-2 text-sm text-text-secondary">PC</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" value="playstation" class="platform-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
-                            <span class="ml-2 text-sm text-text-secondary">PlayStation</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" value="xbox" class="platform-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
-                            <span class="ml-2 text-sm text-text-secondary">Xbox</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" value="nintendo" class="platform-checkbox rounded border-primary-accent text-primary focus:ring-primary focus:ring-offset-0" />
-                            <span class="ml-2 text-sm text-text-secondary">Nintendo Switch</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Score Range Filter -->
-                <div>
-                    <label class="block text-sm font-medium text-text-primary mb-2">Pontuação Metacritic</label>
-                    <div class="flex space-x-2">
-                        <input type="number" id="score-from" placeholder="Min" min="0" max="100" class="w-1/2 bg-surface-700 border border-primary-accent rounded-lg px-3 py-2 text-text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-gaming" />
-                        <input type="number" id="score-to" placeholder="Max" min="0" max="100" class="w-1/2 bg-surface-700 border border-primary-accent rounded-lg px-3 py-2 text-text-primary placeholder-text-tertiary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-gaming" />
-                    </div>
-                </div>
 
                 <!-- Filter Actions -->
                 <div class="flex space-x-2">
@@ -271,238 +193,63 @@
 
             <!-- Analytics Charts -->
             <section class="mb-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- Critic vs User Score Chart -->
-                    <div class="bg-surface rounded-2xl p-6 card-shadow">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold text-text-primary">Críticos vs Usuários por Gênero</h3>
-                            <div class="w-8 h-1 bg-primary"></div>
-                        </div>
-                        <div class="h-64 flex items-center justify-center">
-                            <!-- Chart Placeholder -->
-                            <svg class="w-full h-full" viewBox="0 0 400 200">
-                                <!-- Chart bars representing different genres -->
-                                <rect x="40" y="160" width="30" height="30" fill="#F5C400" opacity="0.8"/>
-                                <rect x="45" y="140" width="20" height="50" fill="#1DBA40" opacity="0.8"/>
-                                
-                                <rect x="100" y="150" width="30" height="40" fill="#F5C400" opacity="0.8"/>
-                                <rect x="105" y="130" width="20" height="60" fill="#1DBA40" opacity="0.8"/>
-                                
-                                <rect x="160" y="170" width="30" height="20" fill="#F5C400" opacity="0.8"/>
-                                <rect x="165" y="160" width="20" height="30" fill="#1DBA40" opacity="0.8"/>
-                                
-                                <rect x="220" y="140" width="30" height="50" fill="#F5C400" opacity="0.8"/>
-                                <rect x="225" y="120" width="20" height="70" fill="#1DBA40" opacity="0.8"/>
-                                
-                                <rect x="280" y="155" width="30" height="35" fill="#F5C400" opacity="0.8"/>
-                                <rect x="285" y="135" width="20" height="55" fill="#1DBA40" opacity="0.8"/>
-                                
-                                <!-- Labels -->
-                                <text x="55" y="205" fill="#B0B0B0" text-anchor="middle" font-size="12">Ação</text>
-                                <text x="115" y="205" fill="#B0B0B0" text-anchor="middle" font-size="12">RPG</text>
-                                <text x="175" y="205" fill="#B0B0B0" text-anchor="middle" font-size="12">Esporte</text>
-                                <text x="235" y="205" fill="#B0B0B0" text-anchor="middle" font-size="12">Aventura</text>
-                                <text x="295" y="205" fill="#B0B0B0" text-anchor="middle" font-size="12">Estratégia</text>
-                            </svg>
-                        </div>
-                        <div class="flex justify-center space-x-4 mt-4">
-                            <div class="flex items-center">
-                                <div class="w-3 h-3 bg-primary rounded mr-2"></div>
-                                <span class="text-sm text-text-secondary">Críticos</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-3 h-3 bg-secondary rounded mr-2"></div>
-                                <span class="text-sm text-text-secondary">Usuários</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-                    <!-- Annual Gaming Trends Chart -->
-                    <div class="bg-surface rounded-2xl p-6 card-shadow">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold text-text-primary">Tendências Anuais</h3>
-                            <div class="w-8 h-1 bg-primary"></div>
-                        </div>
-                        <div class="h-64 flex items-center justify-center">
-                            <!-- Line Chart Placeholder -->
-                            <svg class="w-full h-full" viewBox="0 0 400 200">
-                                <!-- Grid lines -->
-                                <line x1="40" y1="40" x2="40" y2="180" stroke="#404040" stroke-width="1"/>
-                                <line x1="40" y1="180" x2="360" y2="180" stroke="#404040" stroke-width="1"/>
-                                
-                                <!-- Trend line -->
-                                <polyline points="40,160 80,140 120,130 160,120 200,110 240,100 280,95 320,90 360,85" fill="none" stroke="#F5C400" stroke-width="3" opacity="0.8"/>
-                                
-                                <!-- Data points -->
-                                <circle cx="40" cy="160" r="4" fill="#F5C400"/>
-                                <circle cx="80" cy="140" r="4" fill="#F5C400"/>
-                                <circle cx="120" cy="130" r="4" fill="#F5C400"/>
-                                <circle cx="160" cy="120" r="4" fill="#F5C400"/>
-                                <circle cx="200" cy="110" r="4" fill="#F5C400"/>
-                                <circle cx="240" cy="100" r="4" fill="#F5C400"/>
-                                <circle cx="280" cy="95" r="4" fill="#F5C400"/>
-                                <circle cx="320" cy="90" r="4" fill="#F5C400"/>
-                                <circle cx="360" cy="85" r="4" fill="#F5C400"/>
-                                
-                                <!-- Year labels -->
-                                <text x="40" y="195" fill="#B0B0B0" text-anchor="middle" font-size="10">2017</text>
-                                <text x="120" y="195" fill="#B0B0B0" text-anchor="middle" font-size="10">2019</text>
-                                <text x="200" y="195" fill="#B0B0B0" text-anchor="middle" font-size="10">2021</text>
-                                <text x="280" y="195" fill="#B0B0B0" text-anchor="middle" font-size="10">2023</text>
-                                <text x="360" y="195" fill="#B0B0B0" text-anchor="middle" font-size="10">2025</text>
-                            </svg>
-                        </div>
-                        <div class="text-center mt-4">
-                            <span class="text-sm text-text-secondary">Pontuação média ao longo dos anos</span>
-                        </div>
-                    </div>
+                <!-- 1) Top UserScore -->
+                <div class="bg-surface rounded-2xl p-6 card-shadow">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-text-primary">Top 10 UserScore</h3>
+                    <div class="w-8 h-1 bg-primary"></div>
                 </div>
-            </section>
-
-            <!-- Data Table Section -->
-            <section>
-                <div class="bg-surface rounded-2xl card-shadow">
-                    <!-- Table Header -->
-                    <div class="p-6 border-b border-primary-accent">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                            <div>
-                                <h3 class="text-lg font-semibold text-text-primary">Lista de Jogos</h3>
-                                <p class="text-sm text-text-secondary">Explore nossa base de dados completa</p>
-                            </div>
-                            <div class="flex space-x-2">
-                                <button id="export-csv" class="bg-primary text-background px-4 py-2 rounded-lg font-medium hover:bg-primary-600 transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
-                                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                    </svg>
-                                    Exportar CSV
-                                </button>
-                                <button id="table-density" class="border border-primary-accent text-text-secondary px-4 py-2 rounded-lg hover:bg-surface-700 transition-gaming focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Table Content -->
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-surface-700">
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider cursor-pointer hover:text-primary transition-gaming" data-sort="name">
-                                        Nome do Jogo
-                                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
-                                        </svg>
-                                    </th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider cursor-pointer hover:text-primary transition-gaming" data-sort="metascore">
-                                        Metascore
-                                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
-                                        </svg>
-                                    </th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider cursor-pointer hover:text-primary transition-gaming" data-sort="userscore">
-                                        Usuários
-                                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
-                                        </svg>
-                                    </th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Desenvolvedora</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Plataformas</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider cursor-pointer hover:text-primary transition-gaming" data-sort="year">
-                                        Ano
-                                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
-                                        </svg>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody id="games-table-body" class="bg-surface divide-y divide-primary-accent">
-                                <!-- Loading skeleton -->
-                                <tr class="loading-row">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center space-x-4">
-                                            <div class="w-12 h-12 bg-surface-700 rounded-lg pulse-loading"></div>
-                                            <div class="space-y-2">
-                                                <div class="h-4 bg-surface-700 rounded w-32 pulse-loading"></div>
-                                                <div class="h-3 bg-surface-700 rounded w-24 pulse-loading"></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="h-6 bg-surface-700 rounded w-12 pulse-loading"></div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="h-6 bg-surface-700 rounded w-12 pulse-loading"></div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="h-4 bg-surface-700 rounded w-24 pulse-loading"></div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="h-4 bg-surface-700 rounded w-20 pulse-loading"></div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="h-4 bg-surface-700 rounded w-16 pulse-loading"></div>
-                                    </td>
-                                </tr>
-                                <!-- Repeat loading rows -->
-                                <tr class="loading-row">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center space-x-4">
-                                            <div class="w-12 h-12 bg-surface-700 rounded-lg pulse-loading"></div>
-                                            <div class="space-y-2">
-                                                <div class="h-4 bg-surface-700 rounded w-32 pulse-loading"></div>
-                                                <div class="h-3 bg-surface-700 rounded w-24 pulse-loading"></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="h-6 bg-surface-700 rounded w-12 pulse-loading"></div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="h-6 bg-surface-700 rounded w-12 pulse-loading"></div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="h-4 bg-surface-700 rounded w-24 pulse-loading"></div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="h-4 bg-surface-700 rounded w-20 pulse-loading"></div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="h-4 bg-surface-700 rounded w-16 pulse-loading"></div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Pagination -->
-                    <div class="px-6 py-4 border-t border-primary-accent">
-                        <div class="flex items-center justify-between">
-                            <div class="text-sm text-text-secondary">
-                                Mostrando <span id="showing-from">1</span> a <span id="showing-to">20</span> de <span id="total-results">1247</span> resultados
-                            </div>
-                            <div class="flex space-x-2">
-                                <button id="prev-page" class="px-3 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                                    </svg>
-                                </button>
-                                <span class="px-3 py-2 bg-primary text-background rounded-lg font-medium">1</span>
-                                <button class="px-3 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming">2</button>
-                                <button class="px-3 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming">3</button>
-                                <span class="px-3 py-2 text-text-secondary">...</span>
-                                <button class="px-3 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming">63</button>
-                                <button id="next-page" class="px-3 py-2 border border-primary-accent text-text-secondary rounded-lg hover:bg-surface-700 transition-gaming">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="h-72 overflow-y-auto pr-2 pb-2" id="div-top-userscore"></div>
                 </div>
+
+                <!-- 2) Top MetaScore -->
+                <div class="bg-surface rounded-2xl p-6 card-shadow">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-text-primary">Top 10 MetaScore</h3>
+                    <div class="w-8 h-1 bg-primary"></div>
+                </div>
+                <div class="h-72 overflow-y-auto pr-2 pb-2" id="div-top-metascore"></div>
+                </div>
+
+                <!-- 3) Média MetaScore por Gênero -->
+                <div class="bg-surface rounded-2xl p-6 card-shadow">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-text-primary">Média de MetaScore por Gênero</h3>
+                    <div class="w-8 h-1 bg-primary"></div>
+                </div>
+                <div class="h-72 overflow-y-auto pr-2 pb-2" id="div-top-genre-meta"></div>
+                </div>
+
+                <!-- 4) Média MetaScore por Publisher -->
+                <div class="bg-surface rounded-2xl p-6 card-shadow">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-text-primary">Média de MetaScore por Desenvolvedora</h3>
+                    <div class="w-8 h-1 bg-primary"></div>
+                </div>
+                <div class="h-72 overflow-y-auto pr-2 pb-2" id="div-top-publisher-meta"></div>
+                </div>
+
+                <!-- 5) Discrepância Meta vs User -->
+                <div class="bg-surface rounded-2xl p-6 card-shadow">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-text-primary">Maior Discrepância (Meta vs User)</h3>
+                    <div class="w-8 h-1 bg-primary"></div>
+                </div>
+                <div class="h-64" id="div-chart-discrepancia"></div>
+                </div>
+
+                <!-- 6) Linha: MetaScore médio por década -->
+                <div class="bg-surface rounded-2xl p-6 card-shadow">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-text-primary">MetaScore Médio por Década</h3>
+                    <div class="w-8 h-1 bg-primary"></div>
+                </div>
+                <div class="h-64" id="div-chart-decada"></div>
+                </div>
+
+            </div>
             </section>
         </main>
     </div>
@@ -542,7 +289,6 @@
                     <ul class="space-y-2">
                         <li><a href="/" class="text-text-secondary hover:text-primary transition-gaming">Início</a></li>
                         <li><a href="/pesquisa" class="text-text-secondary hover:text-primary transition-gaming">Explorar</a></li>
-                        <li><a href="/detalhes" class="text-text-secondary hover:text-primary transition-gaming">Detalhes do Jogo</a></li>
                         <li><a href="/sobre" class="text-text-secondary hover:text-primary transition-gaming">Sobre</a></li>
                     </ul>
                 </div>
@@ -568,79 +314,6 @@
 
     <!-- JavaScript -->
     <script>
-        // Mock game data
-        const mockGames = [
-            {
-                id: 1,
-                name: "The Legend of Zelda: Breath of the Wild",
-                metascore: 97,
-                userscore: 8.7,
-                publisher: "Nintendo",
-                platforms: ["Nintendo Switch"],
-                year: 2017,
-                genre: ["adventure", "action"],
-                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                id: 2,
-                name: "Red Dead Redemption 2",
-                metascore: 96,
-                userscore: 7.5,
-                publisher: "Rockstar Games",
-                platforms: ["PC", "PlayStation", "Xbox"],
-                year: 2018,
-                genre: ["action", "adventure"],
-                image: "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            },
-            {
-                id: 3,
-                name: "God of War",
-                metascore: 94,
-                userscore: 9.1,
-                publisher: "Sony Interactive Entertainment",
-                platforms: ["PlayStation", "PC"],
-                year: 2018,
-                genre: ["action", "adventure"],
-                image: "https://images.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg"
-            },
-            {
-                id: 4,
-                name: "Hades",
-                metascore: 93,
-                userscore: 9.2,
-                publisher: "Supergiant Games",
-                platforms: ["PC", "Nintendo Switch", "PlayStation", "Xbox"],
-                year: 2020,
-                genre: ["action", "rpg"],
-                image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                id: 5,
-                name: "Portal 2",
-                metascore: 95,
-                userscore: 9.1,
-                publisher: "Valve Corporation",
-                platforms: ["PC", "PlayStation", "Xbox"],
-                year: 2011,
-                genre: ["adventure", "strategy"],
-                image: "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            },
-            {
-                id: 6,
-                name: "The Witcher 3: Wild Hunt",
-                metascore: 92,
-                userscore: 9.0,
-                publisher: "CD Projekt RED",
-                platforms: ["PC", "PlayStation", "Xbox", "Nintendo Switch"],
-                year: 2015,
-                genre: ["rpg", "adventure"],
-                image: "https://images.pixabay.com/photo/2018/05/14/16/54/cyber-3400789_1280.jpg"
-            }
-        ];
-
-        let currentGames = [...mockGames];
-        let currentPage = 1;
-        const itemsPerPage = 20;
 
         // DOM Elements
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -695,215 +368,234 @@
             }, 3000);
         }
 
-        // Render games table
-        function renderGamesTable() {
-            // Remove loading rows
-            document.querySelectorAll('.loading-row').forEach(row => row.remove());
-            
-            if (currentGames.length === 0) {
-                gamesTableBody.innerHTML = `
-                    <tr>
-                        <td colspan="6" class="px-6 py-12 text-center">
-                            <div class="text-text-secondary">
-                                <svg class="w-12 h-12 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                </svg>
-                                <p class="text-lg font-medium">Nenhum jogo encontrado</p>
-                                <p class="text-sm">Tente ajustar seus filtros de busca</p>
-                            </div>
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
+        document.getElementById('toggle-genres')?.addEventListener('click', () => {
+        const box = document.getElementById('genre-list');
+        const icon = document.getElementById('toggle-genres-icon');
+        if (!box || !icon) return;
 
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = Math.min(startIndex + itemsPerPage, currentGames.length);
-            const pageGames = currentGames.slice(startIndex, endIndex);
-
-            gamesTableBody.innerHTML = pageGames.map(game => `
-                <tr class="hover:bg-surface-700 transition-gaming cursor-pointer" onclick="window.location.href='/detalhes?id=${game.id}'">
-                    <td class="px-6 py-4">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
-                                <img 
-                                    src="${game.image}" 
-                                    alt="${game.name}" 
-                                    class="w-full h-full object-cover"
-                                    loading="lazy"
-                                    onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
-                                >
-                            </div>
-                            <div class="min-w-0 flex-1">
-                                <p class="text-sm font-medium text-text-primary truncate">${game.name}</p>
-                                <p class="text-sm text-text-secondary">${game.genre.map(g => g.charAt(0).toUpperCase() + g.slice(1)).join(', ')}</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="px-6 py-4">
-                        <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-sm inline-block">
-                            ${game.metascore}
-                        </div>
-                    </td>
-                    <td class="px-6 py-4">
-                        <div class="bg-secondary text-background px-3 py-1 rounded-lg border-2 border-primary font-bold text-sm inline-block">
-                            ${game.userscore}
-                        </div>
-                    </td>
-                    <td class="px-6 py-4">
-                        <span class="text-sm text-text-primary">${game.publisher}</span>
-                    </td>
-                    <td class="px-6 py-4">
-                        <span class="text-sm text-text-secondary">${game.platforms.join(', ')}</span>
-                    </td>
-                    <td class="px-6 py-4">
-                        <span class="text-sm text-text-primary">${game.year}</span>
-                    </td>
-                </tr>
-            `).join('');
-
-            // Update pagination info
-            document.getElementById('showing-from').textContent = startIndex + 1;
-            document.getElementById('showing-to').textContent = endIndex;
-            document.getElementById('total-results').textContent = currentGames.length;
-        }
-
-        // Filter functionality
-        function applyFilters() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            const publisher = document.getElementById('publisher-filter').value;
-            const yearFrom = parseInt(document.getElementById('year-from').value) || 0;
-            const yearTo = parseInt(document.getElementById('year-to').value) || 9999;
-            const scoreFrom = parseInt(document.getElementById('score-from').value) || 0;
-            const scoreTo = parseInt(document.getElementById('score-to').value) || 100;
-            
-            const selectedGenres = Array.from(document.querySelectorAll('.genre-checkbox:checked')).map(cb => cb.value);
-            const selectedPlatforms = Array.from(document.querySelectorAll('.platform-checkbox:checked')).map(cb => cb.value);
-
-            currentGames = mockGames.filter(game => {
-                const matchesSearch = game.name.toLowerCase().includes(searchTerm);
-                const matchesPublisher = !publisher || game.publisher.toLowerCase().includes(publisher);
-                const matchesYear = game.year >= yearFrom && game.year <= yearTo;
-                const matchesScore = game.metascore >= scoreFrom && game.metascore <= scoreTo;
-                const matchesGenre = selectedGenres.length === 0 || selectedGenres.some(genre => game.genre.includes(genre));
-                const matchesPlatform = selectedPlatforms.length === 0 || selectedPlatforms.some(platform => 
-                    game.platforms.some(p => p.toLowerCase().includes(platform))
-                );
-
-                return matchesSearch && matchesPublisher && matchesYear && matchesScore && matchesGenre && matchesPlatform;
-            });
-
-            currentPage = 1;
-            renderGamesTable();
-            showToast('Filtros aplicados com sucesso!', 'success');
-        }
-
-        // Reset filters
-        function resetFilters() {
-            document.getElementById('search-input').value = '';
-            document.getElementById('publisher-filter').value = '';
-            document.getElementById('year-from').value = '';
-            document.getElementById('year-to').value = '';
-            document.getElementById('score-from').value = '';
-            document.getElementById('score-to').value = '';
-            document.querySelectorAll('.genre-checkbox').forEach(cb => cb.checked = false);
-            document.querySelectorAll('.platform-checkbox').forEach(cb => cb.checked = false);
-            
-            currentGames = [...mockGames];
-            currentPage = 1;
-            renderGamesTable();
-            showToast('Filtros resetados', 'success');
-        }
-
-        // Export CSV functionality
-        function exportCSV() {
-            const headers = ['Nome', 'Metascore', 'Pontuação Usuários', 'Desenvolvedora', 'Plataformas', 'Ano'];
-            const csvContent = [
-                headers.join(','),
-                ...currentGames.map(game => [
-                    `"${game.name}"`,
-                    game.metascore,
-                    game.userscore,
-                    `"${game.publisher}"`,
-                    `"${game.platforms.join('; ')}"`,
-                    game.year
-                ].join(','))
-            ].join('\n');
-
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(blob);
-            link.setAttribute('href', url);
-            link.setAttribute('download', 'jogos_review_center.csv');
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            showToast('CSV exportado com sucesso!', 'success');
-        }
-
-        // Table sorting
-        function sortTable(column) {
-            const isAscending = !currentGames.sortAscending || currentGames.lastSortColumn !== column;
-            
-            currentGames.sort((a, b) => {
-                let aVal = a[column];
-                let bVal = b[column];
-                
-                if (typeof aVal === 'string') {
-                    aVal = aVal.toLowerCase();
-                    bVal = bVal.toLowerCase();
-                }
-                
-                if (isAscending) {
-                    return aVal > bVal ? 1 : -1;
-                } else {
-                    return aVal < bVal ? 1 : -1;
-                }
-            });
-            
-            currentGames.sortAscending = isAscending;
-            currentGames.lastSortColumn = column;
-            
-            renderGamesTable();
-        }
-
-        // Event listeners
-        document.getElementById('apply-filters').addEventListener('click', applyFilters);
-        document.getElementById('reset-filters').addEventListener('click', resetFilters);
-        document.getElementById('export-csv').addEventListener('click', exportCSV);
-
-        // Search with debounce
-        let searchTimeout;
-        document.getElementById('search-input').addEventListener('input', () => {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(applyFilters, 300);
+        const isHidden = box.classList.contains('hidden');
+        box.classList.toggle('hidden');
+        icon.textContent = isHidden ? '▴' : '▾';
         });
 
-        // Table sorting event listeners
-        document.querySelectorAll('[data-sort]').forEach(header => {
-            header.addEventListener('click', () => {
-                const column = header.getAttribute('data-sort');
-                sortTable(column);
-            });
+        document.getElementById('apply-filters')?.addEventListener('click', () => {
+        const queryString = buildFilterParams();
+        carregarGraficos(queryString);
+        if (typeof showToast === 'function') showToast('Filtros aplicados!', 'success');
         });
 
-        // Initialize page
-        setTimeout(() => {
-            renderGamesTable();
-        }, 1000); // Simulate loading time
+        document.getElementById('reset-filters')?.addEventListener('click', () => {
+        ['year-from', 'year-to'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.value = '';
+        });
 
-        // URL parameter handling
-        const urlParams = new URLSearchParams(window.location.search);
-        const searchQuery = urlParams.get('q');
-        if (searchQuery) {
-            document.getElementById('search-input').value = searchQuery;
-            setTimeout(() => {
-                applyFilters();
-            }, 1100);
-        }
+  document.querySelectorAll('.genre-checkbox').forEach(cb => cb.checked = false);
+
+  carregarGraficos("");
+  if (typeof showToast === 'function') showToast('Filtros resetados', 'success');
+});
     </script>
-<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  function criarCanvas(containerId, canvasId) {
+    const div = document.getElementById(containerId);
+    if (!div) return null;
+    div.innerHTML = `<canvas id="${canvasId}"></canvas>`;
+    return document.getElementById(canvasId);
+  }
+
+  function renderTop10List(containerId, items, labelKey, valueKey, valueSuffix = "") {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        if (!items || !items.length) {
+            container.innerHTML = `<div class="text-text-secondary text-sm">Sem dados.</div>`;
+            return;
+        }
+
+        const formatValue = (value) => {
+            if (typeof value === 'number') {
+            return Number.isInteger(value) ? value : value.toFixed(1);
+            }
+            return value;
+        };
+
+        container.innerHTML = `
+            <div class="border-4 border-primary rounded-2xl overflow-hidden">
+            ${items.map((item, idx) => `
+                <div class="flex items-center justify-between px-4 py-3 border-b border-primary/40">
+                <div class="flex items-center gap-4 min-w-0">
+                    <div class="text-xl font-bold text-text-primary w-8">${idx + 1}.</div>
+                    <div class="truncate text-text-primary font-semibold">${item[labelKey]}</div>
+                </div>
+                <div class="bg-primary text-base font-extrabold px-4 py-2 rounded-md shrink-0 text-center" style="font-weight:900; color:#000 !important; min-width:64px; display:inline-flex; justify-content:center; align-items:center;">
+                    ${formatValue(item[valueKey])}${valueSuffix}
+                </div>
+                </div>
+            `).join("")}
+            </div>
+        `;
+        }
+    
+function getSelectedValues(selector) {
+  return Array.from(document.querySelectorAll(selector + ':checked')).map(el => el.value);
+}
+
+function buildFilterParams() {
+  const params = new URLSearchParams();
+
+  const genres = Array.from(document.querySelectorAll('.genre-checkbox:checked')).map(el => el.value);
+  genres.forEach(g => params.append('genre', g));
+
+  const yearMin = document.getElementById('year-from')?.value;
+  const yearMax = document.getElementById('year-to')?.value;
+  if (yearMin) params.set('year_min', yearMin);
+  if (yearMax) params.set('year_max', yearMax);
+
+  return params.toString();
+}
+
+async function carregarGeneros() {
+  try {
+    const resp = await fetch('/obterGeneros');
+    if (!resp.ok) throw new Error('Falha ao obter gêneros');
+
+    const data = await resp.json();
+    const lista = document.getElementById('genre-list');
+    if (!lista) return;
+
+    const generos = data.generos || [];
+
+    lista.innerHTML = generos.map(g => `
+      <label class="flex items-center justify-between gap-3 text-gray-200">
+        <span class="truncate">${g}</span>
+        <input type="checkbox" class="genre-checkbox w-4 h-4" value="${g}">
+      </label>
+    `).join('');
+  } catch (e) {
+    console.error(e);
+    if (typeof showToast === 'function') showToast('Erro ao carregar gêneros', 'error');
+  }
+}
+
+  async function carregarGraficos(queryString = "") {
+    try {
+      const url = queryString ? `/obterDados?${queryString}` : '/obterDados';
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Falha ao obter dados');
+      const dados = await response.json();
+      const kpis = dados.kpis || {};
+
+    const elTotalGames = document.getElementById('total-games');
+    if (elTotalGames) elTotalGames.textContent = (kpis.total_games ?? 0).toLocaleString('pt-BR');
+
+    const elAvgMeta = document.getElementById('avg-metascore');
+    if (elAvgMeta) elAvgMeta.textContent = (kpis.avg_metascore ?? 0).toFixed(1);
+
+    const elAvgUser = document.getElementById('avg-user-score');
+    if (elAvgUser) elAvgUser.textContent = (kpis.avg_userscore ?? 0).toFixed(1);
+
+    const elTotalPublishers = document.getElementById('total-publishers');
+    if (elTotalPublishers) elTotalPublishers.textContent = (kpis.total_publishers ?? 0).toLocaleString('pt-BR');
+
+    renderTop10List(
+    'div-top-userscore',
+    dados.top_userscore,
+    'game_name',
+    'score'
+    );
+
+      renderTop10List(
+    'div-top-metascore',
+    dados.top_metascore,
+    'game_name',
+    'score'
+    );
+
+
+      renderTop10List(
+    'div-top-genre-meta',
+    dados.top_generos_media_meta,
+    'genre_name',
+    'media_meta'
+    );
+
+
+      renderTop10List(
+    'div-top-publisher-meta',
+    dados.top_publishers_media_meta,
+    'publisher_name',
+    'media_meta'
+    );
+
+
+      {
+        const canvas = criarCanvas('div-chart-discrepancia', 'chart-discrepancia');
+
+        const items = (dados.top_discrepancia || []);
+        const labels = items.map(x => x.game_name);
+
+        // user em escala 0-100
+        const user100 = items.map(x => (x.userscore ?? 0) * 10);
+
+        // “o que falta” até o metascore (jeito A)
+        const faltaAteMeta = items.map(x => {
+            const meta = x.metascore ?? 0;
+            const u100 = (x.userscore ?? 0) * 10;
+            return Math.max(meta - u100, 0);
+        });
+
+        new Chart(canvas, {
+            type: 'bar',
+            data: {
+            labels,
+            datasets: [
+                {
+                label: 'UserScore',
+                data: user100,
+                backgroundColor: '#22b5ff', // azul (ajuste se quiser)
+                stack: 'stack1'
+                },
+                {
+                label: 'MetaScore',
+                data: faltaAteMeta,
+                backgroundColor: '#f5c400', // amarelo (ajuste se quiser)
+                stack: 'stack1'
+                }
+            ]
+            },
+            options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: { stacked: true },
+                y: { stacked: true, beginAtZero: true, max: 100 }
+            }
+            }
+        });
+      }
+
+      {
+        const canvas = criarCanvas('div-chart-decada', 'chart-decada');
+        const labels = (dados.meta_por_decada || []).map(x => x.decada);
+        const values = (dados.meta_por_decada || []).map(x => x.media_meta);
+        new Chart(canvas, {
+          type: 'line',
+          data: { labels, datasets: [{ label: 'MetaScore médio', data: values, borderColor: '#f5c400', backgroundColor: 'rgba(245,196,0,0.2)', borderWidth: 3, tension: 0.3, pointBackgroundColor: '#ffffff', pointBorderColor: '#f5c400', pointRadius: 4, pointHoverRadius: 6 }] },
+          options: { responsive: true, maintainAspectRatio: false }
+        });
+      }
+
+    } catch (e) {
+      console.error(e);
+      if (typeof showToast === 'function') showToast('Erro ao carregar gráficos', 'error');
+    }
+  }
+ 
+  carregarGeneros();
+  carregarGraficos();
+</script>
 </body>
 </html>
